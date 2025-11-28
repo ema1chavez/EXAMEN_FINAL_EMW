@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BajasFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BajasFrm.Designer.cs">
+      <DependentUpon>BajasFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EdificiosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EdificiosFrm.Designer.cs">
+      <DependentUpon>EdificiosFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EquiposFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +84,29 @@
     <Compile Include="ProveedoresFmr.Designer.cs">
       <DependentUpon>ProveedoresFmr.cs</DependentUpon>
     </Compile>
+    <Compile Include="RepuestosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RepuestosFrm.Designer.cs">
+      <DependentUpon>RepuestosFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TecnicosFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TecnicosFrm.Designer.cs">
       <DependentUpon>TecnicosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TipoEquipoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TipoEquipoFrm.Designer.cs">
+      <DependentUpon>TipoEquipoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TranferenciasFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TranferenciasFrm.Designer.cs">
+      <DependentUpon>TranferenciasFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="UbicacionesFrm.cs">
       <SubType>Form</SubType>

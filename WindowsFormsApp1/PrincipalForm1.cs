@@ -51,5 +51,41 @@ namespace WindowsFormsApp1
             frm.MdiParent = this; //lo abre dentro del formulario principal
             frm.Show();
         }
+
+        private void toolsEdificios_Click(object sender, EventArgs e)
+        {
+            EdificiosFrm frm = new EdificiosFrm();
+            frm.MdiParent = this;  //lo abre dentro del formulario principal
+            frm.Show();
+        }
+
+        private void toolsBajas_Click(object sender, EventArgs e)
+        {
+            BajasFrm frm = new BajasFrm();
+            frm.MdiParent = this;  //lo abre dentro del formulario principal
+            frm.Show();
+        }
+
+        private void toolsRepuestos_Click(object sender, EventArgs e)
+        {
+            RepuestosFrm frm = new RepuestosFrm();
+            frm.MdiParent = this;  //lo abre dentro del formulario principal
+            frm.Show();
+
+        }
+
+        private void toolsTransferencias_Click(object sender, EventArgs e)
+        {
+            TranferenciasFrm frm = new TranferenciasFrm();
+            frm.MdiParent = this;  //lo abre dentro del formulario principal
+            frm.Show();
+        }
+
+        private void toolsTipoEquipo_Click(object sender, EventArgs e)
+        {
+            TipoEquipoFrm frm = new TipoEquipoFrm();
+            frm.MdiParent = this;  //lo abre dentro del formulario principal
+            frm.Show();
+        }
     }
 }
