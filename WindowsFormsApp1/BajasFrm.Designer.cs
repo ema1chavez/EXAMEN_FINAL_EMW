@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtMotivo = new System.Windows.Forms.TextBox();
-            this.txtDocumento_Respaldo = new System.Windows.Forms.TextBox();
-            this.txtInforme_tecnico = new System.Windows.Forms.TextBox();
-            this.txtFecha_Baja = new System.Windows.Forms.TextBox();
-            this.txtTipo_disposicion = new System.Windows.Forms.TextBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtTipo_disposicion = new System.Windows.Forms.TextBox();
+            this.txtFecha_Baja = new System.Windows.Forms.TextBox();
+            this.txtInforme_tecnico = new System.Windows.Forms.TextBox();
+            this.txtDocumento_Respaldo = new System.Windows.Forms.TextBox();
+            this.txtMotivo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -80,6 +80,113 @@
             this.splitContainer1.SplitterDistance = 265;
             this.splitContainer1.TabIndex = 1;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(177, 244);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 12;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(95, 243);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 11;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(13, 244);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // txtTipo_disposicion
+            // 
+            this.txtTipo_disposicion.Location = new System.Drawing.Point(16, 201);
+            this.txtTipo_disposicion.Name = "txtTipo_disposicion";
+            this.txtTipo_disposicion.Size = new System.Drawing.Size(100, 20);
+            this.txtTipo_disposicion.TabIndex = 9;
+            // 
+            // txtFecha_Baja
+            // 
+            this.txtFecha_Baja.Location = new System.Drawing.Point(16, 160);
+            this.txtFecha_Baja.Name = "txtFecha_Baja";
+            this.txtFecha_Baja.Size = new System.Drawing.Size(100, 20);
+            this.txtFecha_Baja.TabIndex = 8;
+            // 
+            // txtInforme_tecnico
+            // 
+            this.txtInforme_tecnico.Location = new System.Drawing.Point(16, 121);
+            this.txtInforme_tecnico.Name = "txtInforme_tecnico";
+            this.txtInforme_tecnico.Size = new System.Drawing.Size(100, 20);
+            this.txtInforme_tecnico.TabIndex = 7;
+            // 
+            // txtDocumento_Respaldo
+            // 
+            this.txtDocumento_Respaldo.Location = new System.Drawing.Point(16, 82);
+            this.txtDocumento_Respaldo.Name = "txtDocumento_Respaldo";
+            this.txtDocumento_Respaldo.Size = new System.Drawing.Size(100, 20);
+            this.txtDocumento_Respaldo.TabIndex = 6;
+            // 
+            // txtMotivo
+            // 
+            this.txtMotivo.Location = new System.Drawing.Point(16, 44);
+            this.txtMotivo.Name = "txtMotivo";
+            this.txtMotivo.Size = new System.Drawing.Size(100, 20);
+            this.txtMotivo.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 184);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Tipo_Disposicion";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Fecha_Baja";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Informe_tecmico";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Documento_Respaldo";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Motivo";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -92,123 +199,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(527, 288);
             this.dataGridView1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Motivo";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Documento_Respaldo";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Informe_tecmico";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 144);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Fecha_Baja";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 184);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Tipo_Disposicion";
-            // 
-            // txtMotivo
-            // 
-            this.txtMotivo.Location = new System.Drawing.Point(16, 44);
-            this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(100, 20);
-            this.txtMotivo.TabIndex = 5;
-            // 
-            // txtDocumento_Respaldo
-            // 
-            this.txtDocumento_Respaldo.Location = new System.Drawing.Point(16, 82);
-            this.txtDocumento_Respaldo.Name = "txtDocumento_Respaldo";
-            this.txtDocumento_Respaldo.Size = new System.Drawing.Size(100, 20);
-            this.txtDocumento_Respaldo.TabIndex = 6;
-            // 
-            // txtInforme_tecnico
-            // 
-            this.txtInforme_tecnico.Location = new System.Drawing.Point(16, 121);
-            this.txtInforme_tecnico.Name = "txtInforme_tecnico";
-            this.txtInforme_tecnico.Size = new System.Drawing.Size(100, 20);
-            this.txtInforme_tecnico.TabIndex = 7;
-            // 
-            // txtFecha_Baja
-            // 
-            this.txtFecha_Baja.Location = new System.Drawing.Point(16, 160);
-            this.txtFecha_Baja.Name = "txtFecha_Baja";
-            this.txtFecha_Baja.Size = new System.Drawing.Size(100, 20);
-            this.txtFecha_Baja.TabIndex = 8;
-            // 
-            // txtTipo_disposicion
-            // 
-            this.txtTipo_disposicion.Location = new System.Drawing.Point(16, 201);
-            this.txtTipo_disposicion.Name = "txtTipo_disposicion";
-            this.txtTipo_disposicion.Size = new System.Drawing.Size(100, 20);
-            this.txtTipo_disposicion.TabIndex = 9;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(13, 244);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 10;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(95, 243);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 11;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(177, 244);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 12;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
             // BajasFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 288);
             this.Controls.Add(this.splitContainer1);
-            this.IsMdiContainer = true;
             this.Name = "BajasFrm";
             this.Text = "BajasFrm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
