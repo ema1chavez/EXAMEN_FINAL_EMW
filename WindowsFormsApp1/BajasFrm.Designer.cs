@@ -33,7 +33,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtTipo_disposicion = new System.Windows.Forms.TextBox();
-            this.txtFecha_Baja = new System.Windows.Forms.TextBox();
             this.txtInforme_tecnico = new System.Windows.Forms.TextBox();
             this.txtDocumento_Respaldo = new System.Windows.Forms.TextBox();
             this.txtMotivo = new System.Windows.Forms.TextBox();
@@ -43,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.datetFechaBajas = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,11 +59,11 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.splitContainer1.Panel1.Controls.Add(this.datetFechaBajas);
             this.splitContainer1.Panel1.Controls.Add(this.btnEliminar);
             this.splitContainer1.Panel1.Controls.Add(this.btnEditar);
             this.splitContainer1.Panel1.Controls.Add(this.btnGuardar);
             this.splitContainer1.Panel1.Controls.Add(this.txtTipo_disposicion);
-            this.splitContainer1.Panel1.Controls.Add(this.txtFecha_Baja);
             this.splitContainer1.Panel1.Controls.Add(this.txtInforme_tecnico);
             this.splitContainer1.Panel1.Controls.Add(this.txtDocumento_Respaldo);
             this.splitContainer1.Panel1.Controls.Add(this.txtMotivo);
@@ -113,13 +113,6 @@
             this.txtTipo_disposicion.Name = "txtTipo_disposicion";
             this.txtTipo_disposicion.Size = new System.Drawing.Size(100, 20);
             this.txtTipo_disposicion.TabIndex = 9;
-            // 
-            // txtFecha_Baja
-            // 
-            this.txtFecha_Baja.Location = new System.Drawing.Point(16, 160);
-            this.txtFecha_Baja.Name = "txtFecha_Baja";
-            this.txtFecha_Baja.Size = new System.Drawing.Size(100, 20);
-            this.txtFecha_Baja.TabIndex = 8;
             // 
             // txtInforme_tecnico
             // 
@@ -199,6 +192,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(527, 288);
             this.dataGridView1.TabIndex = 0;
             // 
+            // datetFechaBajas
+            // 
+            this.datetFechaBajas.Location = new System.Drawing.Point(19, 161);
+            this.datetFechaBajas.Name = "datetFechaBajas";
+            this.datetFechaBajas.Size = new System.Drawing.Size(200, 20);
+            this.datetFechaBajas.TabIndex = 13;
+            // 
             // BajasFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,7 +221,6 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox txtTipo_disposicion;
-        private System.Windows.Forms.TextBox txtFecha_Baja;
         private System.Windows.Forms.TextBox txtInforme_tecnico;
         private System.Windows.Forms.TextBox txtDocumento_Respaldo;
         private System.Windows.Forms.TextBox txtMotivo;
@@ -234,5 +233,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.DateTimePicker datetFechaBajas;
     }
 }
