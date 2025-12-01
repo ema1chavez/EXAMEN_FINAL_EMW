@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label4 = new System.Windows.Forms.Label();
             this.buttEliminar = new System.Windows.Forms.Button();
             this.buttEditar = new System.Windows.Forms.Button();
             this.buttGuardar = new System.Windows.Forms.Button();
@@ -39,7 +40,8 @@
             this.textbArea = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -56,6 +58,8 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.buttEliminar);
             this.splitContainer1.Panel1.Controls.Add(this.buttEditar);
@@ -73,6 +77,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(800, 192);
             this.splitContainer1.SplitterDistance = 402;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(90, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(134, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "UBICACION DE EQUIPOS";
             // 
             // buttEliminar
             // 
@@ -167,14 +180,23 @@
             this.dataGridView1.Size = new System.Drawing.Size(394, 192);
             this.dataGridView1.TabIndex = 0;
             // 
-            // label4
+            // label5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(90, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(134, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "UBICACION DE EQUIPOS";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 161);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Edificio_id";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(75, 161);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 11;
             // 
             // UbicacionesFrm
             // 
@@ -208,5 +230,7 @@
         private System.Windows.Forms.Button buttEditar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label5;
     }
 }

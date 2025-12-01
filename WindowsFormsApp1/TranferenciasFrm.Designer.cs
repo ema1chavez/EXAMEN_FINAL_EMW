@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,10 +76,17 @@
             this.splitContainer1.SplitterDistance = 266;
             this.splitContainer1.TabIndex = 0;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(43, 61);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 11;
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button3.Location = new System.Drawing.Point(88, 427);
+            this.button3.Location = new System.Drawing.Point(88, 418);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(107, 38);
             this.button3.TabIndex = 10;
@@ -89,7 +96,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.Location = new System.Drawing.Point(88, 384);
+            this.button2.Location = new System.Drawing.Point(88, 373);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(107, 36);
             this.button2.TabIndex = 9;
@@ -100,7 +107,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.button1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(88, 342);
+            this.button1.Location = new System.Drawing.Point(88, 332);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 35);
             this.button1.TabIndex = 8;
@@ -109,7 +116,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(49, 306);
+            this.textBox3.Location = new System.Drawing.Point(49, 296);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(178, 20);
             this.textBox3.TabIndex = 7;
@@ -117,7 +124,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 269);
+            this.label4.Location = new System.Drawing.Point(46, 264);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 6;
@@ -175,13 +182,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(530, 468);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(43, 61);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 11;
             // 
             // TranferenciasFrm
             // 

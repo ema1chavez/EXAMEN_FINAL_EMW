@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.datetFechaBajas = new System.Windows.Forms.DateTimePicker();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -42,7 +43,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.datetFechaBajas = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,6 +63,10 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.label7);
+            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.datetFechaBajas);
             this.splitContainer1.Panel1.Controls.Add(this.btnEliminar);
             this.splitContainer1.Panel1.Controls.Add(this.btnEditar);
@@ -76,13 +84,20 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(796, 288);
+            this.splitContainer1.Size = new System.Drawing.Size(796, 394);
             this.splitContainer1.SplitterDistance = 265;
             this.splitContainer1.TabIndex = 1;
             // 
+            // datetFechaBajas
+            // 
+            this.datetFechaBajas.Location = new System.Drawing.Point(19, 161);
+            this.datetFechaBajas.Name = "datetFechaBajas";
+            this.datetFechaBajas.Size = new System.Drawing.Size(200, 20);
+            this.datetFechaBajas.TabIndex = 13;
+            // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(177, 244);
+            this.btnEliminar.Location = new System.Drawing.Point(174, 359);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 12;
@@ -91,7 +106,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(95, 243);
+            this.btnEditar.Location = new System.Drawing.Point(93, 359);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 11;
@@ -100,7 +115,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(13, 244);
+            this.btnGuardar.Location = new System.Drawing.Point(12, 359);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 10;
@@ -109,30 +124,30 @@
             // 
             // txtTipo_disposicion
             // 
-            this.txtTipo_disposicion.Location = new System.Drawing.Point(16, 201);
+            this.txtTipo_disposicion.Location = new System.Drawing.Point(19, 200);
             this.txtTipo_disposicion.Name = "txtTipo_disposicion";
-            this.txtTipo_disposicion.Size = new System.Drawing.Size(100, 20);
+            this.txtTipo_disposicion.Size = new System.Drawing.Size(200, 20);
             this.txtTipo_disposicion.TabIndex = 9;
             // 
             // txtInforme_tecnico
             // 
             this.txtInforme_tecnico.Location = new System.Drawing.Point(16, 121);
             this.txtInforme_tecnico.Name = "txtInforme_tecnico";
-            this.txtInforme_tecnico.Size = new System.Drawing.Size(100, 20);
+            this.txtInforme_tecnico.Size = new System.Drawing.Size(203, 20);
             this.txtInforme_tecnico.TabIndex = 7;
             // 
             // txtDocumento_Respaldo
             // 
             this.txtDocumento_Respaldo.Location = new System.Drawing.Point(16, 82);
             this.txtDocumento_Respaldo.Name = "txtDocumento_Respaldo";
-            this.txtDocumento_Respaldo.Size = new System.Drawing.Size(100, 20);
+            this.txtDocumento_Respaldo.Size = new System.Drawing.Size(203, 20);
             this.txtDocumento_Respaldo.TabIndex = 6;
             // 
             // txtMotivo
             // 
             this.txtMotivo.Location = new System.Drawing.Point(16, 44);
             this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(100, 20);
+            this.txtMotivo.Size = new System.Drawing.Size(203, 20);
             this.txtMotivo.TabIndex = 5;
             // 
             // label5
@@ -189,21 +204,46 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(527, 288);
+            this.dataGridView1.Size = new System.Drawing.Size(527, 394);
             this.dataGridView1.TabIndex = 0;
             // 
-            // datetFechaBajas
+            // label6
             // 
-            this.datetFechaBajas.Location = new System.Drawing.Point(19, 161);
-            this.datetFechaBajas.Name = "datetFechaBajas";
-            this.datetFechaBajas.Size = new System.Drawing.Size(200, 20);
-            this.datetFechaBajas.TabIndex = 13;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 232);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Equipo_id";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(19, 248);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(197, 20);
+            this.textBox1.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 286);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(146, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Responsable_autorizacion_id";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(22, 312);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(197, 20);
+            this.textBox2.TabIndex = 17;
             // 
             // BajasFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 288);
+            this.ClientSize = new System.Drawing.Size(796, 394);
             this.Controls.Add(this.splitContainer1);
             this.Name = "BajasFrm";
             this.Text = "BajasFrm";
@@ -234,5 +274,9 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DateTimePicker datetFechaBajas;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

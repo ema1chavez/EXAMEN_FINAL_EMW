@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -51,8 +53,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -69,6 +73,10 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.splitContainer1.Panel1.Controls.Add(this.textBox3);
+            this.splitContainer1.Panel1.Controls.Add(this.label13);
+            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.label12);
             this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker2);
             this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker1);
             this.splitContainer1.Panel1.Controls.Add(this.label11);
@@ -96,9 +104,23 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(1000, 376);
+            this.splitContainer1.Size = new System.Drawing.Size(1000, 468);
             this.splitContainer1.SplitterDistance = 401;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(187, 123);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(191, 20);
+            this.dateTimePicker2.TabIndex = 24;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(11, 123);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(167, 20);
+            this.dateTimePicker1.TabIndex = 23;
             // 
             // label11
             // 
@@ -112,7 +134,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(246, 332);
+            this.button3.Location = new System.Drawing.Point(258, 417);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 39);
             this.button3.TabIndex = 21;
@@ -122,7 +144,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(163, 332);
+            this.button2.Location = new System.Drawing.Point(127, 417);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 39);
             this.button2.TabIndex = 20;
@@ -132,7 +154,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(82, 332);
+            this.button1.Location = new System.Drawing.Point(18, 417);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 39);
             this.button1.TabIndex = 19;
@@ -286,28 +308,46 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(595, 376);
+            this.dataGridView1.Size = new System.Drawing.Size(595, 468);
             this.dataGridView1.TabIndex = 0;
             // 
-            // dateTimePicker1
+            // label12
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(11, 123);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(167, 20);
-            this.dateTimePicker1.TabIndex = 23;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(13, 344);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Equipo";
             // 
-            // dateTimePicker2
+            // textBox2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(187, 123);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(191, 20);
-            this.dateTimePicker2.TabIndex = 24;
+            this.textBox2.Location = new System.Drawing.Point(13, 360);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(189, 20);
+            this.textBox2.TabIndex = 26;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(215, 343);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(46, 13);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Tecnico";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(218, 359);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(160, 20);
+            this.textBox3.TabIndex = 28;
             // 
             // MantenimientosFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 376);
+            this.ClientSize = new System.Drawing.Size(1000, 468);
             this.Controls.Add(this.splitContainer1);
             this.Name = "MantenimientosFrm";
             this.Text = " ";
@@ -348,5 +388,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
