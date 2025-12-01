@@ -65,6 +65,16 @@
     <Compile Include="EquiposFrm.Designer.cs">
       <DependentUpon>EquiposFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\Baja.cs" />
+    <Compile Include="Modelos\Edificio.cs" />
+    <Compile Include="Modelos\Equipo.cs" />
+    <Compile Include="Modelos\Mantenimiento.cs" />
+    <Compile Include="Modelos\Proveedore.cs" />
+    <Compile Include="Modelos\Responsable.cs" />
+    <Compile Include="Modelos\Tecnico.cs" />
+    <Compile Include="Modelos\Tipo_Equipo.cs" />
+    <Compile Include="Modelos\Transferencia.cs" />
+    <Compile Include="Modelos\Ubicacione.cs" />
     <Compile Include="PrincipalForm1.cs">
       <SubType>Form</SubType>
     </Compile>
