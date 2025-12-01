@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.datetFechaAdquisicion = new System.Windows.Forms.DateTimePicker();
+            this.datetFechaUltimaActualizacion = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -46,8 +48,16 @@
             this.textbNumeroSerie = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.datetFechaUltimaActualizacion = new System.Windows.Forms.DateTimePicker();
-            this.datetFechaAdquisicion = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,6 +74,16 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox3);
+            this.splitContainer1.Panel1.Controls.Add(this.textBox3);
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox2);
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.label13);
+            this.splitContainer1.Panel1.Controls.Add(this.label12);
+            this.splitContainer1.Panel1.Controls.Add(this.label11);
+            this.splitContainer1.Panel1.Controls.Add(this.label10);
+            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.label9);
             this.splitContainer1.Panel1.Controls.Add(this.datetFechaAdquisicion);
             this.splitContainer1.Panel1.Controls.Add(this.datetFechaUltimaActualizacion);
             this.splitContainer1.Panel1.Controls.Add(this.label8);
@@ -86,9 +106,23 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(824, 335);
+            this.splitContainer1.Size = new System.Drawing.Size(824, 549);
             this.splitContainer1.SplitterDistance = 335;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // datetFechaAdquisicion
+            // 
+            this.datetFechaAdquisicion.Location = new System.Drawing.Point(118, 132);
+            this.datetFechaAdquisicion.Name = "datetFechaAdquisicion";
+            this.datetFechaAdquisicion.Size = new System.Drawing.Size(182, 20);
+            this.datetFechaAdquisicion.TabIndex = 37;
+            // 
+            // datetFechaUltimaActualizacion
+            // 
+            this.datetFechaUltimaActualizacion.Location = new System.Drawing.Point(160, 236);
+            this.datetFechaUltimaActualizacion.Name = "datetFechaUltimaActualizacion";
+            this.datetFechaUltimaActualizacion.Size = new System.Drawing.Size(140, 20);
+            this.datetFechaUltimaActualizacion.TabIndex = 36;
             // 
             // label8
             // 
@@ -102,7 +136,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(225, 288);
+            this.button3.Location = new System.Drawing.Point(224, 480);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 41);
             this.button3.TabIndex = 34;
@@ -112,7 +146,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(118, 288);
+            this.button2.Location = new System.Drawing.Point(114, 480);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 41);
             this.button2.TabIndex = 33;
@@ -122,7 +156,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(15, 288);
+            this.button1.Location = new System.Drawing.Point(12, 480);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 41);
             this.button1.TabIndex = 32;
@@ -205,7 +239,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 236);
+            this.label6.Location = new System.Drawing.Point(16, 236);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 13);
             this.label6.TabIndex = 23;
@@ -236,28 +270,100 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(485, 335);
+            this.dataGridView1.Size = new System.Drawing.Size(485, 549);
             this.dataGridView1.TabIndex = 0;
             // 
-            // datetFechaUltimaActualizacion
+            // label9
             // 
-            this.datetFechaUltimaActualizacion.Location = new System.Drawing.Point(30, 252);
-            this.datetFechaUltimaActualizacion.Name = "datetFechaUltimaActualizacion";
-            this.datetFechaUltimaActualizacion.Size = new System.Drawing.Size(135, 20);
-            this.datetFechaUltimaActualizacion.TabIndex = 36;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 273);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 13);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "Responsable";
             // 
-            // datetFechaAdquisicion
+            // textBox1
             // 
-            this.datetFechaAdquisicion.Location = new System.Drawing.Point(118, 132);
-            this.datetFechaAdquisicion.Name = "datetFechaAdquisicion";
-            this.datetFechaAdquisicion.Size = new System.Drawing.Size(182, 20);
-            this.datetFechaAdquisicion.TabIndex = 37;
+            this.textBox1.Location = new System.Drawing.Point(114, 273);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(186, 20);
+            this.textBox1.TabIndex = 39;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(27, 315);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 13);
+            this.label10.TabIndex = 40;
+            this.label10.Text = "Ubicacion";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(23, 350);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 13);
+            this.label11.TabIndex = 41;
+            this.label11.Text = "Proveedor";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(24, 392);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 13);
+            this.label12.TabIndex = 42;
+            this.label12.Text = "Tipo_equipos";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(27, 423);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(37, 13);
+            this.label13.TabIndex = 43;
+            this.label13.Text = "Marca";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(100, 420);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(200, 21);
+            this.comboBox1.TabIndex = 44;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(109, 389);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(190, 21);
+            this.comboBox2.TabIndex = 45;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(109, 347);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(191, 20);
+            this.textBox3.TabIndex = 47;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(109, 307);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(191, 21);
+            this.comboBox3.TabIndex = 48;
             // 
             // EquiposFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 335);
+            this.ClientSize = new System.Drawing.Size(824, 549);
             this.Controls.Add(this.splitContainer1);
             this.Name = "EquiposFrm";
             this.Text = "EquiposFrm";
@@ -294,5 +400,15 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker datetFechaUltimaActualizacion;
         private System.Windows.Forms.DateTimePicker datetFechaAdquisicion;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }
