@@ -183,6 +183,7 @@
             this.Name = "PrincipalForm1";
             this.Text = "INVENTARIO DE EQUIPOS INFORMATICOS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.PrincipalForm1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

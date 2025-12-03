@@ -94,5 +94,10 @@ namespace WindowsFormsApp1
             frm.MdiParent = this; 
             frm.Show();
         }
+
+        private void PrincipalForm1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
