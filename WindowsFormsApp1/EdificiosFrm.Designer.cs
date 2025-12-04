@@ -153,6 +153,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "EdificiosFrm";
             this.Text = "EdificiosFrm";
+            this.Load += new System.EventHandler(this.EdificiosFrm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

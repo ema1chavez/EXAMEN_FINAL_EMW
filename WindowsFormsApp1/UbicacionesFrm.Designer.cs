@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.buttEliminar = new System.Windows.Forms.Button();
             this.buttEditar = new System.Windows.Forms.Button();
@@ -40,8 +42,6 @@
             this.textbArea = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -77,6 +77,24 @@
             this.splitContainer1.Size = new System.Drawing.Size(800, 192);
             this.splitContainer1.SplitterDistance = 402;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(75, 161);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 161);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Edificio_id";
             // 
             // label4
             // 
@@ -180,24 +198,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(394, 192);
             this.dataGridView1.TabIndex = 0;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 161);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Edificio_id";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(75, 161);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 11;
-            // 
             // UbicacionesFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +206,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "UbicacionesFrm";
             this.Text = "UbicacionesFrm";
+            this.Load += new System.EventHandler(this.UbicacionesFrm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

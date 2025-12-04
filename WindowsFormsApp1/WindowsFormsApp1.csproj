@@ -135,6 +135,9 @@
     <EmbeddedResource Include="BajasFrm.resx">
       <DependentUpon>BajasFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EdificiosFrm.resx">
+      <DependentUpon>EdificiosFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EquiposFrm.resx">
       <DependentUpon>EquiposFrm.cs</DependentUpon>
     </EmbeddedResource>

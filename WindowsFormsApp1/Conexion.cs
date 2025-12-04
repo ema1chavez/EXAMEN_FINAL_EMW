@@ -18,7 +18,6 @@ namespace WindowsFormsApp1
                 if (connection.State != System.Data.ConnectionState.Open)
                 {
                     connection.Open();
-                    MessageBox.Show("Conexión abierta correctamente.");
                 }
             }
             catch (Exception ex)

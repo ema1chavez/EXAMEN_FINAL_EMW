@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.datetFechaBajas = new System.Windows.Forms.DateTimePicker();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -43,10 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -87,6 +87,38 @@
             this.splitContainer1.Size = new System.Drawing.Size(796, 394);
             this.splitContainer1.SplitterDistance = 265;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(22, 312);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(197, 20);
+            this.textBox2.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 286);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(146, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Responsable_autorizacion_id";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(19, 248);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(197, 20);
+            this.textBox1.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 232);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Equipo_id";
             // 
             // datetFechaBajas
             // 
@@ -207,38 +239,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(527, 394);
             this.dataGridView1.TabIndex = 0;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 232);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Equipo_id";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(19, 248);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 20);
-            this.textBox1.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 286);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(146, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Responsable_autorizacion_id";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(22, 312);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 20);
-            this.textBox2.TabIndex = 17;
-            // 
             // BajasFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,6 +247,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "BajasFrm";
             this.Text = "BajasFrm";
+            this.Load += new System.EventHandler(this.BajasFrm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

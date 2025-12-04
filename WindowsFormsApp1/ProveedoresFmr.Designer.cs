@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,6 +81,15 @@
             this.splitContainer1.Size = new System.Drawing.Size(858, 344);
             this.splitContainer1.SplitterDistance = 279;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(57, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(158, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "PROVEEDORES DE EQUIPOS";
             // 
             // btnEliminar
             // 
@@ -205,15 +214,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(575, 344);
             this.dataGridView1.TabIndex = 0;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(57, 22);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(158, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "PROVEEDORES DE EQUIPOS";
-            // 
             // ProveedoresFmr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +222,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "ProveedoresFmr";
             this.Text = "ProveedoresFmr";
+            this.Load += new System.EventHandler(this.ProveedoresFmr_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

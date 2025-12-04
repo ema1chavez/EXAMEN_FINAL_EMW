@@ -29,6 +29,19 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.TRANSFERENCIAS = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -41,20 +54,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.TRANSFERENCIAS = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -103,11 +102,129 @@
             this.splitContainer1.SplitterDistance = 368;
             this.splitContainer1.TabIndex = 0;
             // 
+            // TRANSFERENCIAS
+            // 
+            this.TRANSFERENCIAS.AutoSize = true;
+            this.TRANSFERENCIAS.Location = new System.Drawing.Point(112, 13);
+            this.TRANSFERENCIAS.Name = "TRANSFERENCIAS";
+            this.TRANSFERENCIAS.Size = new System.Drawing.Size(104, 13);
+            this.TRANSFERENCIAS.TabIndex = 24;
+            this.TRANSFERENCIAS.Text = "TRANSFERENCIAS";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(285, 259);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(75, 21);
+            this.comboBox5.TabIndex = 23;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(160, 259);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(75, 21);
+            this.comboBox4.TabIndex = 22;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(285, 176);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(75, 21);
+            this.comboBox3.TabIndex = 21;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(160, 176);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(75, 21);
+            this.comboBox2.TabIndex = 20;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(21, 223);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(75, 21);
+            this.comboBox1.TabIndex = 19;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(116, 262);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Entrega";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(243, 262);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Recibe";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(116, 179);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Origen";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(241, 179);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Destino";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(198, 231);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(86, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "RESPONSABLE";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(209, 149);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "UBICACION";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(38, 203);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "EQUIPO";
+            // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(43, 61);
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 59);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(167, 20);
             this.dateTimePicker1.TabIndex = 11;
             // 
             // button3
@@ -210,131 +327,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(428, 373);
             this.dataGridView1.TabIndex = 0;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 59);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(167, 20);
-            this.dateTimePicker1.TabIndex = 11;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(38, 203);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "EQUIPO";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(209, 149);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "UBICACION";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(198, 231);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "RESPONSABLE";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(241, 179);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Destino";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(116, 179);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 13);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Origen";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(243, 262);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "Recibe";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(116, 262);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Entrega";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(21, 223);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(75, 21);
-            this.comboBox1.TabIndex = 19;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(160, 176);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(75, 21);
-            this.comboBox2.TabIndex = 20;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(285, 176);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(75, 21);
-            this.comboBox3.TabIndex = 21;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(160, 259);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(75, 21);
-            this.comboBox4.TabIndex = 22;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(285, 259);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(75, 21);
-            this.comboBox5.TabIndex = 23;
-            // 
-            // TRANSFERENCIAS
-            // 
-            this.TRANSFERENCIAS.AutoSize = true;
-            this.TRANSFERENCIAS.Location = new System.Drawing.Point(112, 13);
-            this.TRANSFERENCIAS.Name = "TRANSFERENCIAS";
-            this.TRANSFERENCIAS.Size = new System.Drawing.Size(104, 13);
-            this.TRANSFERENCIAS.TabIndex = 24;
-            this.TRANSFERENCIAS.Text = "TRANSFERENCIAS";
-            // 
             // TranferenciasFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,6 +335,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "TranferenciasFrm";
             this.Text = "TranferenciasFrm";
+            this.Load += new System.EventHandler(this.TranferenciasFrm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

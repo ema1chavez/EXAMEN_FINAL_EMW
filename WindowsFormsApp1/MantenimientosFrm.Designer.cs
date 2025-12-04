@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
@@ -53,10 +57,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -107,6 +107,38 @@
             this.splitContainer1.Size = new System.Drawing.Size(1000, 468);
             this.splitContainer1.SplitterDistance = 401;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(218, 359);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(160, 20);
+            this.textBox3.TabIndex = 28;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(215, 343);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(46, 13);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Tecnico";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(13, 360);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(189, 20);
+            this.textBox2.TabIndex = 26;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(13, 344);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Equipo";
             // 
             // dateTimePicker2
             // 
@@ -311,38 +343,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(595, 468);
             this.dataGridView1.TabIndex = 0;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(13, 344);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 13);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Equipo";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(13, 360);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(189, 20);
-            this.textBox2.TabIndex = 26;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(215, 343);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(46, 13);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "Tecnico";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(218, 359);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(160, 20);
-            this.textBox3.TabIndex = 28;
-            // 
             // MantenimientosFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -351,6 +351,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "MantenimientosFrm";
             this.Text = " ";
+            this.Load += new System.EventHandler(this.MantenimientosFrm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

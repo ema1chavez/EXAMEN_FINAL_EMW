@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.labNombre = new System.Windows.Forms.Label();
-            this.labMarca = new System.Windows.Forms.Label();
-            this.textbNombre = new System.Windows.Forms.TextBox();
-            this.textbMarca = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttAgregar = new System.Windows.Forms.Button();
-            this.buttEditar = new System.Windows.Forms.Button();
-            this.buttEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttEliminar = new System.Windows.Forms.Button();
+            this.buttEditar = new System.Windows.Forms.Button();
+            this.buttAgregar = new System.Windows.Forms.Button();
+            this.textbMarca = new System.Windows.Forms.TextBox();
+            this.textbNombre = new System.Windows.Forms.TextBox();
+            this.labMarca = new System.Windows.Forms.Label();
+            this.labNombre = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -70,14 +70,58 @@
             this.splitContainer1.SplitterDistance = 290;
             this.splitContainer1.TabIndex = 0;
             // 
-            // labNombre
+            // label1
             // 
-            this.labNombre.AutoSize = true;
-            this.labNombre.Location = new System.Drawing.Point(26, 52);
-            this.labNombre.Name = "labNombre";
-            this.labNombre.Size = new System.Drawing.Size(44, 13);
-            this.labNombre.TabIndex = 0;
-            this.labNombre.Text = "Nombre";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(58, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "TIPOS DE EQUIPOS";
+            // 
+            // buttEliminar
+            // 
+            this.buttEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttEliminar.Location = new System.Drawing.Point(213, 103);
+            this.buttEliminar.Name = "buttEliminar";
+            this.buttEliminar.Size = new System.Drawing.Size(75, 38);
+            this.buttEliminar.TabIndex = 6;
+            this.buttEliminar.Text = "ELIMINAR";
+            this.buttEliminar.UseVisualStyleBackColor = false;
+            // 
+            // buttEditar
+            // 
+            this.buttEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.buttEditar.Location = new System.Drawing.Point(211, 59);
+            this.buttEditar.Name = "buttEditar";
+            this.buttEditar.Size = new System.Drawing.Size(75, 38);
+            this.buttEditar.TabIndex = 5;
+            this.buttEditar.Text = "EDITAR";
+            this.buttEditar.UseVisualStyleBackColor = false;
+            // 
+            // buttAgregar
+            // 
+            this.buttAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttAgregar.Location = new System.Drawing.Point(211, 15);
+            this.buttAgregar.Name = "buttAgregar";
+            this.buttAgregar.Size = new System.Drawing.Size(75, 38);
+            this.buttAgregar.TabIndex = 4;
+            this.buttAgregar.Text = "AGREGAR";
+            this.buttAgregar.UseVisualStyleBackColor = false;
+            // 
+            // textbMarca
+            // 
+            this.textbMarca.Location = new System.Drawing.Point(29, 115);
+            this.textbMarca.Name = "textbMarca";
+            this.textbMarca.Size = new System.Drawing.Size(147, 20);
+            this.textbMarca.TabIndex = 3;
+            // 
+            // textbNombre
+            // 
+            this.textbNombre.Location = new System.Drawing.Point(29, 69);
+            this.textbNombre.Name = "textbNombre";
+            this.textbNombre.Size = new System.Drawing.Size(147, 20);
+            this.textbNombre.TabIndex = 2;
             // 
             // labMarca
             // 
@@ -88,19 +132,14 @@
             this.labMarca.TabIndex = 1;
             this.labMarca.Text = "Marca";
             // 
-            // textbNombre
+            // labNombre
             // 
-            this.textbNombre.Location = new System.Drawing.Point(29, 69);
-            this.textbNombre.Name = "textbNombre";
-            this.textbNombre.Size = new System.Drawing.Size(147, 20);
-            this.textbNombre.TabIndex = 2;
-            // 
-            // textbMarca
-            // 
-            this.textbMarca.Location = new System.Drawing.Point(29, 115);
-            this.textbMarca.Name = "textbMarca";
-            this.textbMarca.Size = new System.Drawing.Size(147, 20);
-            this.textbMarca.TabIndex = 3;
+            this.labNombre.AutoSize = true;
+            this.labNombre.Location = new System.Drawing.Point(26, 52);
+            this.labNombre.Name = "labNombre";
+            this.labNombre.Size = new System.Drawing.Size(44, 13);
+            this.labNombre.TabIndex = 0;
+            this.labNombre.Text = "Nombre";
             // 
             // dataGridView1
             // 
@@ -114,45 +153,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(287, 159);
             this.dataGridView1.TabIndex = 0;
             // 
-            // buttAgregar
-            // 
-            this.buttAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttAgregar.Location = new System.Drawing.Point(211, 15);
-            this.buttAgregar.Name = "buttAgregar";
-            this.buttAgregar.Size = new System.Drawing.Size(75, 38);
-            this.buttAgregar.TabIndex = 4;
-            this.buttAgregar.Text = "AGREGAR";
-            this.buttAgregar.UseVisualStyleBackColor = false;
-            // 
-            // buttEditar
-            // 
-            this.buttEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.buttEditar.Location = new System.Drawing.Point(211, 59);
-            this.buttEditar.Name = "buttEditar";
-            this.buttEditar.Size = new System.Drawing.Size(75, 38);
-            this.buttEditar.TabIndex = 5;
-            this.buttEditar.Text = "EDITAR";
-            this.buttEditar.UseVisualStyleBackColor = false;
-            // 
-            // buttEliminar
-            // 
-            this.buttEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.buttEliminar.Location = new System.Drawing.Point(213, 103);
-            this.buttEliminar.Name = "buttEliminar";
-            this.buttEliminar.Size = new System.Drawing.Size(75, 38);
-            this.buttEliminar.TabIndex = 6;
-            this.buttEliminar.Text = "ELIMINAR";
-            this.buttEliminar.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "TIPOS DE EQUIPOS";
-            // 
             // TipoEquipoFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,6 +161,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "TipoEquipoFrm";
             this.Text = "TipoEquipoFrm";
+            this.Load += new System.EventHandler(this.TipoEquipoFrm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
