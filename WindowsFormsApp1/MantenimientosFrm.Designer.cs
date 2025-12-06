@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.combobTecnicoID = new System.Windows.Forms.ComboBox();
+            this.combobEquipoID = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeFechaFin = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.buttEliminar = new System.Windows.Forms.Button();
+            this.buttEditar = new System.Windows.Forms.Button();
+            this.buttGuardar = new System.Windows.Forms.Button();
+            this.txtInformeTecnico = new System.Windows.Forms.TextBox();
+            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.txtTiempoInactividad = new System.Windows.Forms.TextBox();
+            this.txtCostoTotal = new System.Windows.Forms.TextBox();
+            this.txtAccionesRealizadas = new System.Windows.Forms.TextBox();
+            this.txtDescripcionProblema = new System.Windows.Forms.TextBox();
+            this.txtTipo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -73,23 +73,23 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.splitContainer1.Panel1.Controls.Add(this.textBox3);
+            this.splitContainer1.Panel1.Controls.Add(this.combobTecnicoID);
+            this.splitContainer1.Panel1.Controls.Add(this.combobEquipoID);
             this.splitContainer1.Panel1.Controls.Add(this.label13);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
             this.splitContainer1.Panel1.Controls.Add(this.label12);
-            this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker2);
-            this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker1);
+            this.splitContainer1.Panel1.Controls.Add(this.dateTimeFechaFin);
+            this.splitContainer1.Panel1.Controls.Add(this.dateTimeFechaInicio);
             this.splitContainer1.Panel1.Controls.Add(this.label11);
-            this.splitContainer1.Panel1.Controls.Add(this.button3);
-            this.splitContainer1.Panel1.Controls.Add(this.button2);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox9);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox8);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox7);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox6);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox5);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox4);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.buttEliminar);
+            this.splitContainer1.Panel1.Controls.Add(this.buttEditar);
+            this.splitContainer1.Panel1.Controls.Add(this.buttGuardar);
+            this.splitContainer1.Panel1.Controls.Add(this.txtInformeTecnico);
+            this.splitContainer1.Panel1.Controls.Add(this.txtEstado);
+            this.splitContainer1.Panel1.Controls.Add(this.txtTiempoInactividad);
+            this.splitContainer1.Panel1.Controls.Add(this.txtCostoTotal);
+            this.splitContainer1.Panel1.Controls.Add(this.txtAccionesRealizadas);
+            this.splitContainer1.Panel1.Controls.Add(this.txtDescripcionProblema);
+            this.splitContainer1.Panel1.Controls.Add(this.txtTipo);
             this.splitContainer1.Panel1.Controls.Add(this.label10);
             this.splitContainer1.Panel1.Controls.Add(this.label9);
             this.splitContainer1.Panel1.Controls.Add(this.label8);
@@ -108,12 +108,25 @@
             this.splitContainer1.SplitterDistance = 401;
             this.splitContainer1.TabIndex = 0;
             // 
-            // textBox3
+            // combobTecnicoID
             // 
-            this.textBox3.Location = new System.Drawing.Point(218, 359);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(160, 20);
-            this.textBox3.TabIndex = 28;
+            this.combobTecnicoID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combobTecnicoID.FormattingEnabled = true;
+            this.combobTecnicoID.Location = new System.Drawing.Point(218, 359);
+            this.combobTecnicoID.Name = "combobTecnicoID";
+            this.combobTecnicoID.Size = new System.Drawing.Size(121, 21);
+            this.combobTecnicoID.TabIndex = 29;
+            this.combobTecnicoID.SelectedIndexChanged += new System.EventHandler(this.combobTecnicoID_SelectedIndexChanged);
+            // 
+            // combobEquipoID
+            // 
+            this.combobEquipoID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combobEquipoID.FormattingEnabled = true;
+            this.combobEquipoID.Location = new System.Drawing.Point(16, 361);
+            this.combobEquipoID.Name = "combobEquipoID";
+            this.combobEquipoID.Size = new System.Drawing.Size(121, 21);
+            this.combobEquipoID.TabIndex = 28;
+            this.combobEquipoID.SelectedIndexChanged += new System.EventHandler(this.combobEquipoID_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -124,13 +137,6 @@
             this.label13.TabIndex = 27;
             this.label13.Text = "Tecnico";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(13, 360);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(189, 20);
-            this.textBox2.TabIndex = 26;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -140,19 +146,19 @@
             this.label12.TabIndex = 25;
             this.label12.Text = "Equipo";
             // 
-            // dateTimePicker2
+            // dateTimeFechaFin
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(187, 123);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(191, 20);
-            this.dateTimePicker2.TabIndex = 24;
+            this.dateTimeFechaFin.Location = new System.Drawing.Point(187, 123);
+            this.dateTimeFechaFin.Name = "dateTimeFechaFin";
+            this.dateTimeFechaFin.Size = new System.Drawing.Size(191, 20);
+            this.dateTimeFechaFin.TabIndex = 24;
             // 
-            // dateTimePicker1
+            // dateTimeFechaInicio
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(11, 123);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(167, 20);
-            this.dateTimePicker1.TabIndex = 23;
+            this.dateTimeFechaInicio.Location = new System.Drawing.Point(11, 123);
+            this.dateTimeFechaInicio.Name = "dateTimeFechaInicio";
+            this.dateTimeFechaInicio.Size = new System.Drawing.Size(167, 20);
+            this.dateTimeFechaInicio.TabIndex = 23;
             // 
             // label11
             // 
@@ -163,84 +169,86 @@
             this.label11.TabIndex = 22;
             this.label11.Text = "MANTENIMIENTOS REALIZADOS";
             // 
-            // button3
+            // buttEliminar
             // 
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(258, 417);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 39);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "ELIMINAR";
-            this.button3.UseVisualStyleBackColor = false;
+            this.buttEliminar.BackColor = System.Drawing.Color.Red;
+            this.buttEliminar.Location = new System.Drawing.Point(258, 417);
+            this.buttEliminar.Name = "buttEliminar";
+            this.buttEliminar.Size = new System.Drawing.Size(75, 39);
+            this.buttEliminar.TabIndex = 21;
+            this.buttEliminar.Text = "ELIMINAR";
+            this.buttEliminar.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // buttEditar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(127, 417);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 39);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "EDITAR";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.buttEditar.Location = new System.Drawing.Point(127, 417);
+            this.buttEditar.Name = "buttEditar";
+            this.buttEditar.Size = new System.Drawing.Size(75, 39);
+            this.buttEditar.TabIndex = 20;
+            this.buttEditar.Text = "EDITAR";
+            this.buttEditar.UseVisualStyleBackColor = false;
+            this.buttEditar.Click += new System.EventHandler(this.buttEditar_Click);
             // 
-            // button1
+            // buttGuardar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(18, 417);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 39);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "AGREGAR";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.buttGuardar.Location = new System.Drawing.Point(18, 417);
+            this.buttGuardar.Name = "buttGuardar";
+            this.buttGuardar.Size = new System.Drawing.Size(75, 39);
+            this.buttGuardar.TabIndex = 19;
+            this.buttGuardar.Text = "GUARDAR";
+            this.buttGuardar.UseVisualStyleBackColor = false;
+            this.buttGuardar.Click += new System.EventHandler(this.buttGuardar_Click);
             // 
-            // textBox9
+            // txtInformeTecnico
             // 
-            this.textBox9.Location = new System.Drawing.Point(12, 306);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(366, 20);
-            this.textBox9.TabIndex = 18;
+            this.txtInformeTecnico.Location = new System.Drawing.Point(12, 306);
+            this.txtInformeTecnico.Name = "txtInformeTecnico";
+            this.txtInformeTecnico.Size = new System.Drawing.Size(366, 20);
+            this.txtInformeTecnico.TabIndex = 18;
             // 
-            // textBox8
+            // txtEstado
             // 
-            this.textBox8.Location = new System.Drawing.Point(215, 265);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(163, 20);
-            this.textBox8.TabIndex = 17;
+            this.txtEstado.Location = new System.Drawing.Point(215, 265);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(163, 20);
+            this.txtEstado.TabIndex = 17;
             // 
-            // textBox7
+            // txtTiempoInactividad
             // 
-            this.textBox7.Location = new System.Drawing.Point(12, 265);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(190, 20);
-            this.textBox7.TabIndex = 16;
+            this.txtTiempoInactividad.Location = new System.Drawing.Point(12, 265);
+            this.txtTiempoInactividad.Name = "txtTiempoInactividad";
+            this.txtTiempoInactividad.Size = new System.Drawing.Size(190, 20);
+            this.txtTiempoInactividad.TabIndex = 16;
             // 
-            // textBox6
+            // txtCostoTotal
             // 
-            this.textBox6.Location = new System.Drawing.Point(246, 219);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(132, 20);
-            this.textBox6.TabIndex = 15;
+            this.txtCostoTotal.Location = new System.Drawing.Point(246, 219);
+            this.txtCostoTotal.Name = "txtCostoTotal";
+            this.txtCostoTotal.Size = new System.Drawing.Size(132, 20);
+            this.txtCostoTotal.TabIndex = 15;
             // 
-            // textBox5
+            // txtAccionesRealizadas
             // 
-            this.textBox5.Location = new System.Drawing.Point(11, 219);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(227, 20);
-            this.textBox5.TabIndex = 14;
+            this.txtAccionesRealizadas.Location = new System.Drawing.Point(11, 219);
+            this.txtAccionesRealizadas.Name = "txtAccionesRealizadas";
+            this.txtAccionesRealizadas.Size = new System.Drawing.Size(227, 20);
+            this.txtAccionesRealizadas.TabIndex = 14;
             // 
-            // textBox4
+            // txtDescripcionProblema
             // 
-            this.textBox4.Location = new System.Drawing.Point(11, 170);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(367, 20);
-            this.textBox4.TabIndex = 13;
+            this.txtDescripcionProblema.Location = new System.Drawing.Point(11, 170);
+            this.txtDescripcionProblema.Name = "txtDescripcionProblema";
+            this.txtDescripcionProblema.Size = new System.Drawing.Size(367, 20);
+            this.txtDescripcionProblema.TabIndex = 13;
             // 
-            // textBox1
+            // txtTipo
             // 
-            this.textBox1.Location = new System.Drawing.Point(11, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(136, 20);
-            this.textBox1.TabIndex = 10;
+            this.txtTipo.Location = new System.Drawing.Point(11, 72);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(136, 20);
+            this.txtTipo.TabIndex = 10;
             // 
             // label10
             // 
@@ -340,6 +348,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(595, 468);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -374,24 +383,24 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtInformeTecnico;
+        private System.Windows.Forms.TextBox txtEstado;
+        private System.Windows.Forms.TextBox txtTiempoInactividad;
+        private System.Windows.Forms.TextBox txtCostoTotal;
+        private System.Windows.Forms.TextBox txtAccionesRealizadas;
+        private System.Windows.Forms.TextBox txtDescripcionProblema;
+        private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttEliminar;
+        private System.Windows.Forms.Button buttEditar;
+        private System.Windows.Forms.Button buttGuardar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimeFechaFin;
+        private System.Windows.Forms.DateTimePicker dateTimeFechaInicio;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox combobTecnicoID;
+        private System.Windows.Forms.ComboBox combobEquipoID;
     }
 }
