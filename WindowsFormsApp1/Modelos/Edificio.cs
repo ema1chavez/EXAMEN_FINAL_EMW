@@ -102,6 +102,6 @@ namespace WindowsFormsApp1.Modelos
             {
                 cnn.Desconectar();
             }
-        }
+        }   
     }
 }

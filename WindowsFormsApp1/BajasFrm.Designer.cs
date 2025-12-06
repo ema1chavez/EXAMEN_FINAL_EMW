@@ -122,10 +122,12 @@
             // 
             // datetFechaBajas
             // 
+            this.datetFechaBajas.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datetFechaBajas.Location = new System.Drawing.Point(19, 161);
             this.datetFechaBajas.Name = "datetFechaBajas";
             this.datetFechaBajas.Size = new System.Drawing.Size(200, 20);
             this.datetFechaBajas.TabIndex = 13;
+            this.datetFechaBajas.Value = new System.DateTime(2025, 12, 5, 0, 0, 0, 0);
             // 
             // btnEliminar
             // 
@@ -135,6 +137,7 @@
             this.btnEliminar.TabIndex = 12;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -144,6 +147,7 @@
             this.btnEditar.TabIndex = 11;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGuardar
             // 
@@ -153,6 +157,7 @@
             this.btnGuardar.TabIndex = 10;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtTipo_disposicion
             // 
@@ -234,8 +239,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(527, 394);
             this.dataGridView1.TabIndex = 0;
             // 
