@@ -100,6 +100,7 @@
             this.button3.TabIndex = 12;
             this.button3.Text = "Eliminar";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -110,6 +111,7 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "Editar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -120,6 +122,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox5
             // 
@@ -211,6 +214,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(449, 236);
             this.dataGridView1.TabIndex = 0;
             // 

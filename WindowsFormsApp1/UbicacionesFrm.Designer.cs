@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbEdificios = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.buttEliminar = new System.Windows.Forms.Button();
@@ -58,7 +58,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.cbEdificios);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.buttEliminar);
@@ -78,23 +78,23 @@
             this.splitContainer1.SplitterDistance = 402;
             this.splitContainer1.TabIndex = 0;
             // 
-            // comboBox1
+            // cbEdificios
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(75, 161);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 11;
+            this.cbEdificios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEdificios.FormattingEnabled = true;
+            this.cbEdificios.Location = new System.Drawing.Point(75, 161);
+            this.cbEdificios.Name = "cbEdificios";
+            this.cbEdificios.Size = new System.Drawing.Size(223, 21);
+            this.cbEdificios.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(13, 161);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Edificio_id";
+            this.label5.Text = "Edificio";
             // 
             // label4
             // 
@@ -114,6 +114,7 @@
             this.buttEliminar.TabIndex = 8;
             this.buttEliminar.Text = "Eliminar";
             this.buttEliminar.UseVisualStyleBackColor = false;
+            this.buttEliminar.Click += new System.EventHandler(this.buttEliminar_Click);
             // 
             // buttEditar
             // 
@@ -124,6 +125,7 @@
             this.buttEditar.TabIndex = 7;
             this.buttEditar.Text = "Editar";
             this.buttEditar.UseVisualStyleBackColor = false;
+            this.buttEditar.Click += new System.EventHandler(this.buttEditar_Click);
             // 
             // buttGuardar
             // 
@@ -134,6 +136,7 @@
             this.buttGuardar.TabIndex = 6;
             this.buttGuardar.Text = "Guardar";
             this.buttGuardar.UseVisualStyleBackColor = false;
+            this.buttGuardar.Click += new System.EventHandler(this.buttGuardar_Click);
             // 
             // textbDescripcion
             // 
@@ -231,7 +234,7 @@
         private System.Windows.Forms.Button buttEditar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbEdificios;
         private System.Windows.Forms.Label label5;
     }
 }

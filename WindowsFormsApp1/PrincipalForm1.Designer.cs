@@ -181,7 +181,7 @@
             this.Controls.Add(this.statusStrip1);
             this.IsMdiContainer = true;
             this.Name = "PrincipalForm1";
-            this.Text = "INVENTARIO DE EQUIPOS INFORMATICOS";
+            this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PrincipalForm1_Load);
             this.toolStrip1.ResumeLayout(false);
