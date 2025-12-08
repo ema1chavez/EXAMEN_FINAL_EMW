@@ -13,6 +13,7 @@ namespace WindowsFormsApp1.Modelos
     {
         public static DataTable Obtener()
         {
+
             Conexion cnn = new Conexion();
             try
             {

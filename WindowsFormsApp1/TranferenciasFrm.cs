@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class TranferenciasFrm : Form
     {
+        int transferencias_id = 0;
         public TranferenciasFrm()
         {
             InitializeComponent();
@@ -31,6 +32,9 @@ namespace WindowsFormsApp1
                 dataGridView1.Columns["id"].Visible = false;
 
             }
+            cbEquipo.DataSource = Equipo.Obtener();
+            cbEquipo.DisplayMember = "nombre";
+            cbEquipo.ValueMember = "id";
         }
 
     }
