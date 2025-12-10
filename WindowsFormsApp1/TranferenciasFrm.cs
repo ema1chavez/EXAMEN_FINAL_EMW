@@ -32,10 +32,52 @@ namespace WindowsFormsApp1
                 dataGridView1.Columns["id"].Visible = false;
 
             }
+            //cargar el combobox de equipo 
             cbEquipo.DataSource = Equipo.Obtener();
             cbEquipo.DisplayMember = "nombre";
             cbEquipo.ValueMember = "";
+
+            //cargar el combobox de ubicacion origen
+            cbUbicacionOrigen.DataSource = Ubicacione.Obtener();
+            cbUbicacionOrigen.DisplayMember = "area";
+            cbUbicacionOrigen.ValueMember = "";
+
+            //cargar el combobox de ubicacion destino
+            cbUbicacionDestino.DataSource = Ubicacione.Obtener();
+            cbUbicacionDestino .DisplayMember = "area";
+            cbUbicacionDestino .ValueMember = "";
+
+            //cargar el combobox de responsable entrega
+            cbResponsableEntrega.DataSource = Responsable.Obtener();
+            cbResponsableEntrega.DisplayMember = "nombre";
+            cbResponsableEntrega.ValueMember = "";
+
+            //cargar el combobox de responsable recibe
+            cbResponsableRecibe.DataSource = Responsable.Obtener();
+            cbResponsableRecibe.DisplayMember = "nombre";
+            cbResponsableRecibe.ValueMember = "";
+
+
         }
 
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+         
+         }
+
+        private void btEditar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
