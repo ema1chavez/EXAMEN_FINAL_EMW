@@ -35,5 +35,86 @@ namespace WindowsFormsApp1.Modelos
                 cnn.Desconectar();
             }
         }
+
+        public static bool Crear(int equipo_id, int ubicacion_origen_id, int ubicacion_destino_id, int responsable_entrega_id, int responsable_recibe_id, DateTime fecha_transferencia)
+        {
+            Conexion cnn = new Conexion();
+            try
+            {
+                cnn.Conectar();
+                String consulta = "INSERT INTO Transferencias (equipo_id, ubicacion_origen_id, ubicacion_destino_id, responsable_entrega_id, responsable_recibe_id, fecha_transferencia) VALUES (@equipo_id, @ubicacion_origen_id, @ubicacion_destino_id, @responsable_entrega_id, @responsable_recibe_id, @fecha_transferencia)";
+                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
+                comando.Parameters.AddWithValue("@equipo_id", equipo_id);
+                comando.Parameters.AddWithValue("@ubicacion_origen_id", ubicacion_origen_id);
+                comando.Parameters.AddWithValue("@ubicacion_destino_id", ubicacion_destino_id);
+                comando.Parameters.AddWithValue("@responsable_entrega_id", responsable_entrega_id);
+                comando.Parameters.AddWithValue("@responsable_recibe_id", responsable_recibe_id);
+                comando.Parameters.AddWithValue("@fecha_transferencia", fecha_transferencia);
+                int filasAfectadas = comando.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+                return false;
+            }
+            finally
+            {
+                cnn.Desconectar();
+            }
+        }
+
+        public static bool Editar(int id, int equipo_id, int ubicacion_origen_id, int ubicacion_destino_id, int responsable_entrega_id, int responsable_recibe_id, DateTime fecha_transferencia)
+        {
+            Conexion cnn = new Conexion();
+            try
+            {
+                cnn.Conectar();
+                String consulta = "UPDATE Transferencias SET equipo_id=@equipo_id, ubicacion_origen_id=@ubicacion_origen_id, ubicacion_destino_id=@ubicacion_destino_id, responsable_entrega_id=@responsable_entrega_id, responsable_recibe_id=@responsable_recibe_id, fecha_transferencia=@fecha_transferencia WHERE id=@id";
+                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
+                comando.Parameters.AddWithValue("@id", id);
+                comando.Parameters.AddWithValue("@equipo_id", equipo_id);
+                comando.Parameters.AddWithValue("@ubicacion_origen_id", ubicacion_origen_id);
+                comando.Parameters.AddWithValue("@ubicacion_destino_id", ubicacion_destino_id);
+                comando.Parameters.AddWithValue("@responsable_entrega_id", responsable_entrega_id);
+                comando.Parameters.AddWithValue("@responsable_recibe_id", responsable_recibe_id);
+                comando.Parameters.AddWithValue("@fecha_transferencia", fecha_transferencia);
+                int filasAfectadas = comando.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+                return false;
+            }
+            finally
+            {
+                cnn.Desconectar();
+            }
+        }
+
+        public static bool Eliminar(int id)
+        {
+            Conexion cnn = new Conexion();
+            try
+            {
+                cnn.Conectar();
+                String consulta = "DELETE FROM Transferencias WHERE id=@id";
+                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
+                comando.Parameters.AddWithValue("@id", id);
+                int filasAfectadas = comando.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+                return false;
+            }
+            finally
+            {
+                cnn.Desconectar();
+            }
+        }
     }
+
 }
