@@ -26,7 +26,7 @@ namespace WindowsFormsApp1
             //optener la lista de ID del Equipo 
             combobEquipoID.DataSource = Equipo.Obtener();
             combobEquipoID.DisplayMember = "id";     // Lo que se muestra
-            combobEquipoID.ValueMember = "id";       // El valor real
+            combobEquipoID.ValueMember = "";       // El valor real
 
             //optener la lista de id del tecnico
             combobTecnicoID.DataSource = Tecnico.Obtener();

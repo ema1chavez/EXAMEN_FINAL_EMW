@@ -26,8 +26,9 @@ namespace WindowsFormsApp1
             if (cbResponsable.Columns.Count > 0)
             {
                 cbResponsable.Columns["id"].Visible = false;
+            }
 
-
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
