@@ -28,13 +28,6 @@ namespace WindowsFormsApp1
                 cbResponsable.Columns["id"].Visible = false;
 
             }
-            cbResponsable.DataMember = "nombre";
-            cbResponsable.ValueMember = "id";
-            
-
-
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)

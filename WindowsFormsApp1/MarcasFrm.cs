@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class MarcasFrm : Form
     {
+        int marca_id = 0;
         public MarcasFrm()
         {
             InitializeComponent();
@@ -34,6 +35,43 @@ namespace WindowsFormsApp1
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            {
+                string nombres = txtNombres.Text;
+                bool resultado = false;
+                if (marca_id == 0)
+                {
+                  resultado = Marca.Crear(nombres);
+                }
+                else
+                {
+                   resultado = Marca.Editar(marca_id, nombres);
+                }
+
+                dataGridView1.DataSource = Marca.Obtener();
+                limpiar();
+            }
+        }
+        private void limpiar()
+        {
+        txtNombres.Clear();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            txtNombres.Text = dataGridView1.CurrentRow.Cells["nombre"].Value.ToString();
+            marca_id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
+            bool resultado = Marca.Eliminar(id);
+            dataGridView1.DataSource = Marca.Obtener();
         }
     }
 }

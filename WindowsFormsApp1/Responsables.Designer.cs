@@ -202,6 +202,7 @@
             // 
             this.cbResponsable.AllowUserToAddRows = false;
             this.cbResponsable.AllowUserToDeleteRows = false;
+            this.cbResponsable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.cbResponsable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cbResponsable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbResponsable.Location = new System.Drawing.Point(0, 0);
