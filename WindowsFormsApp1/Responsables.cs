@@ -27,13 +27,9 @@ namespace WindowsFormsApp1
             {
                 cbResponsable.Columns["id"].Visible = false;
 
-            }
-<<<<<<< HEAD
-=======
+            }  
 
-          
 
->>>>>>> a6c7ed2d401bebc0eddf5dbe24b611c2e42cfb65
         }
 
         private void button1_Click(object sender, EventArgs e)
