@@ -146,6 +146,7 @@ namespace WindowsFormsApp1
             {
                 dataGridView1.Columns["id"].Visible = false;
 
+
             }
         }
 

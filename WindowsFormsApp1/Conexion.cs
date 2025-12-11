@@ -10,7 +10,7 @@ namespace WindowsFormsApp1
 {
     internal class Conexion
     {
-       SqlConnection connection = new SqlConnection("Database=inventario_de equipos informaticos;Data Source=172.16.0.20;User Id=sa;Password=Hyp3r10nPr0_;TrustServerCertificate=True");
+       SqlConnection connection = new SqlConnection("Database=inventario_de equipos informaticos;Data Source=127.0.0.1,1430;User Id=sa;Password=Hyp3r10nPr0_;TrustServerCertificate=True");
         public SqlConnection Conectar()
         {
             try
