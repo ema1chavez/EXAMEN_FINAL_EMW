@@ -12,22 +12,27 @@ namespace WindowsFormsApp1.Modelos
 {
     internal class Ubicacione
     {
+        // ===================== OBTENER =====================
         public static DataTable Obtener()
         {
             Conexion cnn = new Conexion();
             try
             {
-                cnn.Conectar();
-                String consulta = "select u.*,e.nombre as edificio from Ubicaciones u inner join Edificios e on u.edificio_id = e.id order by id desc";
-                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
-                SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+                SqlConnection conn = cnn.Conectar();
+                string consulta = @"
+                SELECT u.*, e.nombre AS edificio
+                FROM Ubicaciones u
+                INNER JOIN Edificios e ON u.edificio_id = e.id
+                ORDER BY u.id DESC";
+
+                SqlDataAdapter da = new SqlDataAdapter(consulta, conn);
                 DataTable dt = new DataTable();
-                adaptador.Fill(dt);
+                da.Fill(dt);
                 return dt;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error al obtener ubicaciones:\n" + ex.Message);
                 return null;
             }
             finally
@@ -36,25 +41,28 @@ namespace WindowsFormsApp1.Modelos
             }
         }
 
+        // ===================== CREAR =====================
         public static bool Crear(string area, string piso, string descripcion, int edificio_id)
         {
             Conexion cnn = new Conexion();
             try
             {
-                cnn.Conectar();
-                String consulta = "INSERT INTO Ubicaciones (area,piso, descripcion, edificio_id) VALUES (@area, @piso, @descripcion,@edificio_id)";
-                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
-                comando.Parameters.AddWithValue("@area", area);
-                comando.Parameters.AddWithValue("@piso", piso);
-                comando.Parameters.AddWithValue("@descripcion", descripcion);
-                comando.Parameters.AddWithValue("@edificio_id", edificio_id);
-                int filasAfectadas = comando.ExecuteNonQuery();
-                return filasAfectadas > 0;
+                SqlConnection conn = cnn.Conectar();
+                string sql = @"INSERT INTO Ubicaciones
+                (area, piso, descripcion, edificio_id)
+                VALUES (@area, @piso, @descripcion, @edificio_id)";
 
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@area", area);
+                cmd.Parameters.AddWithValue("@piso", piso);
+                cmd.Parameters.AddWithValue("@descripcion", descripcion);
+                cmd.Parameters.AddWithValue("@edificio_id", edificio_id);
+
+                return cmd.ExecuteNonQuery() > 0;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error al crear ubicación:\n" + ex.Message);
                 return false;
             }
             finally
@@ -63,25 +71,32 @@ namespace WindowsFormsApp1.Modelos
             }
         }
 
+        // ===================== EDITAR =====================
         public static bool Editar(int id, string area, string piso, string descripcion, int edificio_id)
         {
             Conexion cnn = new Conexion();
             try
             {
-                cnn.Conectar();
-                String consulta = "UPDATE Ubicaciones SET area=@area, piso=@piso, descripcion=@descripcion, edificio=@edificio_id WHERE id=@id";
-                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
-                comando.Parameters.AddWithValue("@id", id);
-                comando.Parameters.AddWithValue("@area", area);
-                comando.Parameters.AddWithValue("@piso", piso);
-                comando.Parameters.AddWithValue("@descripcion", descripcion);
-                comando.Parameters.AddWithValue("@edificio_id", edificio_id);
-                int filasAfectadas = comando.ExecuteNonQuery();
-                return filasAfectadas > 0;
+                SqlConnection conn = cnn.Conectar();
+                string sql = @"UPDATE Ubicaciones SET
+                area=@area,
+                piso=@piso,
+                descripcion=@descripcion,
+                edificio_id=@edificio_id
+                WHERE id=@id";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@area", area);
+                cmd.Parameters.AddWithValue("@piso", piso);
+                cmd.Parameters.AddWithValue("@descripcion", descripcion);
+                cmd.Parameters.AddWithValue("@edificio_id", edificio_id);
+
+                return cmd.ExecuteNonQuery() > 0;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error al editar ubicación:\n" + ex.Message);
                 return false;
             }
             finally
@@ -89,22 +104,23 @@ namespace WindowsFormsApp1.Modelos
                 cnn.Desconectar();
             }
         }
-    
-    public static bool Eliminar(int id)
+
+        // ===================== ELIMINAR =====================
+        public static bool Eliminar(int id)
         {
             Conexion cnn = new Conexion();
             try
             {
-                cnn.Conectar();
-                String consulta = "DELETE FROM Ubicaciones WHERE id=@id";
-                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
-                comando.Parameters.AddWithValue("@id", id);
-                int filasAfectadas = comando.ExecuteNonQuery();
-                return filasAfectadas > 0;
+                SqlConnection conn = cnn.Conectar();
+                string sql = "DELETE FROM Ubicaciones WHERE id=@id";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                return cmd.ExecuteNonQuery() > 0;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error al eliminar ubicación:\n" + ex.Message);
                 return false;
             }
             finally

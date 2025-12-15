@@ -144,6 +144,33 @@ namespace WindowsFormsApp1.Modelos
             }
         }
 
+        public static bool Eliminar(int id)
+        {
+            Conexion cnn = new Conexion();
+            try
+            {
+                cnn.Conectar();
+                using (var conn = new SqlConnection("Data Source=.;Initial Catalog=TuBaseDeDatos;Integrated Security=True"))
+                {
+                    conn.Open();
+                    using (var cmd = new SqlCommand("DELETE FROM Transferencias WHERE id = @id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+                        return filasAfectadas > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+                return false;
+            }
+            finally
+            {
+                cnn.Desconectar();
+            }
+        }
 
     }
 

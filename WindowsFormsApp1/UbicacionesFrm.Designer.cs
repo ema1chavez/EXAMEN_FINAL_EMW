@@ -86,6 +86,7 @@
             this.cbEdificios.Name = "cbEdificios";
             this.cbEdificios.Size = new System.Drawing.Size(223, 21);
             this.cbEdificios.TabIndex = 11;
+            this.cbEdificios.SelectedIndexChanged += new System.EventHandler(this.cbEdificios_SelectedIndexChanged);
             // 
             // label5
             // 

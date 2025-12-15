@@ -11,22 +11,30 @@ namespace WindowsFormsApp1.Modelos
 {
     internal class Baja
     {
+        // =========================
+        // OBTENER
+        // =========================
         public static DataTable Obtener()
         {
             Conexion cnn = new Conexion();
+            DataTable dt = new DataTable();
+
             try
             {
-                cnn.Conectar();
-                String consulta = "SELECT * FROM Bajas order by id desc";
-                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
-                SqlDataAdapter adaptador = new SqlDataAdapter(comando);
-                DataTable dt = new DataTable();
-                adaptador.Fill(dt);
+                SqlConnection conn = cnn.Conectar();
+                string sql = "SELECT * FROM Bajas ORDER BY id DESC";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
+
                 return dt;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error al obtener bajas\n" + ex.Message);
                 return null;
             }
             finally
@@ -34,40 +42,48 @@ namespace WindowsFormsApp1.Modelos
                 cnn.Desconectar();
             }
         }
-        public static bool Crear(string Motivo,string Documento_Respaldo,string Informe_tecnico,string Fecha_Baja,string Tipo_Disposicion,
-     string Equipo_id,
-     string Responsable_autorizacion_id)
+
+        // =========================
+        // CREAR
+        // =========================
+        public static bool Crear(
+            string motivo,
+            string documentoRespaldo,
+            string informeTecnico,
+            DateTime fechaBaja,
+            string tipoDisposicion,
+            int equipoId,
+            int responsableId)
         {
             Conexion cnn = new Conexion();
+
             try
             {
-                SqlConnection conexion = cnn.Conectar();
+                SqlConnection conn = cnn.Conectar();
 
-                string Consulta = @"INSERT INTO Bajas 
-            (motivo, Documento_Respaldo, Informe_tecnico, Fecha_Baja, 
-             Tipo_Disposicion, Equipo_id, Responsable_autorizacion_id) 
-            VALUES 
-            (@motivo, @Documento_Respaldo, @Informe_tecnico, @Fecha_Baja, 
-             @Tipo_Disposicion, @Equipo_id, @Responsable_autorizacion_id)";
+                string sql = @"INSERT INTO Bajas
+                (motivo, Documento_Respaldo, Informe_tecnico, Fecha_Baja,
+                 Tipo_Disposicion, Equipo_id, Responsable_autorizacion_id)
+                VALUES
+                (@motivo, @Documento_Respaldo, @Informe_tecnico, @Fecha_Baja,
+                 @Tipo_Disposicion, @Equipo_id, @Responsable_autorizacion_id)";
 
-                using (SqlCommand comando = new SqlCommand(Consulta, conexion))
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    comando.Parameters.AddWithValue("@motivo", Motivo);
-                    comando.Parameters.AddWithValue("@Documento_Respaldo", Documento_Respaldo);
-                    comando.Parameters.AddWithValue("@Informe_tecnico", Informe_tecnico);
-                    comando.Parameters.AddWithValue("@Fecha_Baja", Fecha_Baja);
-                    comando.Parameters.AddWithValue("@Tipo_Disposicion", Tipo_Disposicion);
-                    comando.Parameters.AddWithValue("@Equipo_id", Equipo_id);
-                    comando.Parameters.AddWithValue("@Responsable_autorizacion_id", Responsable_autorizacion_id);
+                    cmd.Parameters.Add("@motivo", SqlDbType.VarChar).Value = motivo;
+                    cmd.Parameters.Add("@Documento_Respaldo", SqlDbType.VarChar).Value = documentoRespaldo;
+                    cmd.Parameters.Add("@Informe_tecnico", SqlDbType.VarChar).Value = informeTecnico;
+                    cmd.Parameters.Add("@Fecha_Baja", SqlDbType.Date).Value = fechaBaja;
+                    cmd.Parameters.Add("@Tipo_Disposicion", SqlDbType.VarChar).Value = tipoDisposicion;
+                    cmd.Parameters.Add("@Equipo_id", SqlDbType.Int).Value = equipoId;
+                    cmd.Parameters.Add("@Responsable_autorizacion_id", SqlDbType.Int).Value = responsableId;
 
-                    int filas = comando.ExecuteNonQuery();
-
-                    return true;
+                    return cmd.ExecuteNonQuery() > 0;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error al crear baja\n" + ex.Message);
                 return false;
             }
             finally
@@ -76,28 +92,52 @@ namespace WindowsFormsApp1.Modelos
             }
         }
 
-        public static bool Editar(int id, string motivo, string Documento_Respaldo, string Informe_tecnico, string Fecha_Baja, string Tipo_Disposicion, string Equipo_id, string Responsable_autorizacion_id)
+        // =========================
+        // EDITAR
+        // =========================
+        public static bool Editar(
+            int id,
+            string motivo,
+            string documentoRespaldo,
+            string informeTecnico,
+            DateTime fechaBaja,
+            string tipoDisposicion,
+            int equipoId,
+            int responsableId)
         {
             Conexion cnn = new Conexion();
+
             try
             {
-                cnn.Conectar();
-                String consulta = "UPDATE Bajas SET motivo=@motivo, Documento_Respaldo=@Documento_Respaldo, Informe_tecnico=@Informe_tecnico, Fecha_Baja=@Fecha_Baja, Tipo_Disposicion=@Tipo_Disposicion, Equipo_id=@Equipo_id, Responsable_autorizacion_id=@Responsable_autorizacion_id WHERE id=@id";
-                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
-                comando.Parameters.AddWithValue("@id", id);
-                comando.Parameters.AddWithValue("@motivo", motivo);
-                comando.Parameters.AddWithValue("@Documento_Respaldo", Documento_Respaldo);
-                comando.Parameters.AddWithValue("@Informe_tecnico", Informe_tecnico);
-                comando.Parameters.AddWithValue("@Fecha_Baja", Fecha_Baja);
-                comando.Parameters.AddWithValue("@Tipo_Disposicion", Tipo_Disposicion);
-                comando.Parameters.AddWithValue("@Equipo_id", Equipo_id);
-                comando.Parameters.AddWithValue("@Responsable_autorizacion_id", Responsable_autorizacion_id);
-                int filasAfectadas = comando.ExecuteNonQuery();
-                return filasAfectadas > 0;
+                SqlConnection conn = cnn.Conectar();
+
+                string sql = @"UPDATE Bajas SET
+                motivo=@motivo,
+                Documento_Respaldo=@Documento_Respaldo,
+                Informe_tecnico=@Informe_tecnico,
+                Fecha_Baja=@Fecha_Baja,
+                Tipo_Disposicion=@Tipo_Disposicion,
+                Equipo_id=@Equipo_id,
+                Responsable_autorizacion_id=@Responsable_autorizacion_id
+                WHERE id=@id";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                    cmd.Parameters.Add("@motivo", SqlDbType.VarChar).Value = motivo;
+                    cmd.Parameters.Add("@Documento_Respaldo", SqlDbType.VarChar).Value = documentoRespaldo;
+                    cmd.Parameters.Add("@Informe_tecnico", SqlDbType.VarChar).Value = informeTecnico;
+                    cmd.Parameters.Add("@Fecha_Baja", SqlDbType.Date).Value = fechaBaja;
+                    cmd.Parameters.Add("@Tipo_Disposicion", SqlDbType.VarChar).Value = tipoDisposicion;
+                    cmd.Parameters.Add("@Equipo_id", SqlDbType.Int).Value = equipoId;
+                    cmd.Parameters.Add("@Responsable_autorizacion_id", SqlDbType.Int).Value = responsableId;
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error al editar baja\n" + ex.Message);
                 return false;
             }
             finally
@@ -105,21 +145,28 @@ namespace WindowsFormsApp1.Modelos
                 cnn.Desconectar();
             }
         }
+
+        // =========================
+        // ELIMINAR
+        // =========================
         public static bool Eliminar(int id)
         {
             Conexion cnn = new Conexion();
+
             try
             {
-                cnn.Conectar();
-                String consulta = "DELETE FROM Bajas WHERE id = @id";
-                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
-                comando.Parameters.AddWithValue("@id", id);
-                int filasAfectadas = comando.ExecuteNonQuery();
-                return filasAfectadas > 0;
+                SqlConnection conn = cnn.Conectar();
+                string sql = "DELETE FROM Bajas WHERE id=@id";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                    return cmd.ExecuteNonQuery() > 0;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error al eliminar baja\n" + ex.Message);
                 return false;
             }
             finally

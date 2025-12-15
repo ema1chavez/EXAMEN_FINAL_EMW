@@ -36,7 +36,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtca = new System.Windows.Forms.ComboBox();
+            this.txtcargo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,7 +66,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.textBox3);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.txtca);
+            this.splitContainer1.Panel1.Controls.Add(this.txtcargo);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.textBox2);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
@@ -143,19 +143,19 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Telefono";
             // 
-            // txtca
+            // txtcargo
             // 
-            this.txtca.FormattingEnabled = true;
-            this.txtca.Items.AddRange(new object[] {
+            this.txtcargo.FormattingEnabled = true;
+            this.txtcargo.Items.AddRange(new object[] {
             "responsable de area",
             "rsponsable de produccion",
             "responsable de almacen ",
             "responsable de mantenimiento"});
-            this.txtca.Location = new System.Drawing.Point(40, 209);
-            this.txtca.Name = "txtca";
-            this.txtca.Size = new System.Drawing.Size(179, 21);
-            this.txtca.TabIndex = 5;
-            this.txtca.SelectedIndexChanged += new System.EventHandler(this.txtca_SelectedIndexChanged);
+            this.txtcargo.Location = new System.Drawing.Point(40, 209);
+            this.txtcargo.Name = "txtcargo";
+            this.txtcargo.Size = new System.Drawing.Size(179, 21);
+            this.txtcargo.TabIndex = 5;
+            this.txtcargo.SelectedIndexChanged += new System.EventHandler(this.txtca_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -236,7 +236,7 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ComboBox txtca;
+        private System.Windows.Forms.ComboBox txtcargo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;

@@ -21,19 +21,19 @@ namespace WindowsFormsApp1
 
         private void UbicacionesFrm_Load(object sender, EventArgs e)
         {
+            dataGridView1.DataSource = Ubicacione.Obtener();
+
+            if (dataGridView1.Columns.Count > 0)
             {
-                dataGridView1.DataSource = Ubicacione.Obtener();
-                if (dataGridView1.Columns.Count > 0)
-                {
-                    dataGridView1.Columns["id"].Visible = false;
-                    dataGridView1.Columns["edificio_id"].Visible = false;
-                }
-                cbEdificios.DataSource = Edificio.Obtener();
-                cbEdificios.DisplayMember = "nombre";
-                cbEdificios.ValueMember = "id";
+                dataGridView1.Columns["id"].Visible = false;
+                dataGridView1.Columns["edificio_id"].Visible = false;
             }
 
+            cbEdificios.DataSource = Edificio.Obtener();
+            cbEdificios.DisplayMember = "nombre";
+            cbEdificios.ValueMember = "id";
         }
+
 
         private void buttGuardar_Click(object sender, EventArgs e)
         {
@@ -69,12 +69,19 @@ namespace WindowsFormsApp1
 
         private void buttEditar_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un registro");
+                return;
+            }
+
             textbArea.Text = dataGridView1.CurrentRow.Cells["area"].Value.ToString();
             textbPiso.Text = dataGridView1.CurrentRow.Cells["piso"].Value.ToString();
             textbDescripcion.Text = dataGridView1.CurrentRow.Cells["descripcion"].Value.ToString();
-            cbEdificios.Text = dataGridView1.CurrentRow.Cells["edificio_id"].Value.ToString();
+            cbEdificios.SelectedValue = dataGridView1.CurrentRow.Cells["edificio_id"].Value;
             ubicacion_id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
         }
+
 
         private void buttEliminar_Click(object sender, EventArgs e)
         {
@@ -89,6 +96,11 @@ namespace WindowsFormsApp1
            }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cbEdificios_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

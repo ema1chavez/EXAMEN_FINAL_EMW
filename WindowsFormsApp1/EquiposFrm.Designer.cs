@@ -30,21 +30,19 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbMarca = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.datetFechaAdquisicion = new System.Windows.Forms.DateTimePicker();
             this.datetFechaUltimaActualizacion = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.butEliminar = new System.Windows.Forms.Button();
+            this.butEditar = new System.Windows.Forms.Button();
+            this.butAgregar = new System.Windows.Forms.Button();
             this.textbObservacion = new System.Windows.Forms.TextBox();
             this.textbModelo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,6 +56,8 @@
             this.textbNumeroSerie = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -74,22 +74,22 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox5);
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox4);
             this.splitContainer1.Panel1.Controls.Add(this.comboBox3);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox3);
             this.splitContainer1.Panel1.Controls.Add(this.comboBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.cbMarca);
             this.splitContainer1.Panel1.Controls.Add(this.label13);
             this.splitContainer1.Panel1.Controls.Add(this.label12);
             this.splitContainer1.Panel1.Controls.Add(this.label11);
             this.splitContainer1.Panel1.Controls.Add(this.label10);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             this.splitContainer1.Panel1.Controls.Add(this.label9);
             this.splitContainer1.Panel1.Controls.Add(this.datetFechaAdquisicion);
             this.splitContainer1.Panel1.Controls.Add(this.datetFechaUltimaActualizacion);
             this.splitContainer1.Panel1.Controls.Add(this.label8);
-            this.splitContainer1.Panel1.Controls.Add(this.button3);
-            this.splitContainer1.Panel1.Controls.Add(this.button2);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.butEliminar);
+            this.splitContainer1.Panel1.Controls.Add(this.butEditar);
+            this.splitContainer1.Panel1.Controls.Add(this.butAgregar);
             this.splitContainer1.Panel1.Controls.Add(this.textbObservacion);
             this.splitContainer1.Panel1.Controls.Add(this.textbModelo);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
@@ -119,13 +119,6 @@
             this.comboBox3.Size = new System.Drawing.Size(191, 21);
             this.comboBox3.TabIndex = 48;
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(109, 347);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(191, 20);
-            this.textBox3.TabIndex = 47;
-            // 
             // comboBox2
             // 
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -135,14 +128,15 @@
             this.comboBox2.Size = new System.Drawing.Size(190, 21);
             this.comboBox2.TabIndex = 45;
             // 
-            // comboBox1
+            // cbMarca
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(100, 420);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 44;
+            this.cbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMarca.FormattingEnabled = true;
+            this.cbMarca.Location = new System.Drawing.Point(100, 420);
+            this.cbMarca.Name = "cbMarca";
+            this.cbMarca.Size = new System.Drawing.Size(200, 21);
+            this.cbMarca.TabIndex = 44;
+            this.cbMarca.SelectedIndexChanged += new System.EventHandler(this.cbMarca_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -180,13 +174,6 @@
             this.label10.TabIndex = 40;
             this.label10.Text = "Ubicacion";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(114, 273);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 20);
-            this.textBox1.TabIndex = 39;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -219,36 +206,38 @@
             this.label8.TabIndex = 35;
             this.label8.Text = "AGREGAR EQUIPOS";
             // 
-            // button3
+            // butEliminar
             // 
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(224, 480);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 41);
-            this.button3.TabIndex = 34;
-            this.button3.Text = "ELIMINAR";
-            this.button3.UseVisualStyleBackColor = false;
+            this.butEliminar.BackColor = System.Drawing.Color.Red;
+            this.butEliminar.Location = new System.Drawing.Point(224, 480);
+            this.butEliminar.Name = "butEliminar";
+            this.butEliminar.Size = new System.Drawing.Size(75, 41);
+            this.butEliminar.TabIndex = 34;
+            this.butEliminar.Text = "ELIMINAR";
+            this.butEliminar.UseVisualStyleBackColor = false;
+            this.butEliminar.Click += new System.EventHandler(this.butEliminar_Click);
             // 
-            // button2
+            // butEditar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(114, 480);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 41);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "EDITAR";
-            this.button2.UseVisualStyleBackColor = false;
+            this.butEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.butEditar.Location = new System.Drawing.Point(114, 480);
+            this.butEditar.Name = "butEditar";
+            this.butEditar.Size = new System.Drawing.Size(75, 41);
+            this.butEditar.TabIndex = 33;
+            this.butEditar.Text = "EDITAR";
+            this.butEditar.UseVisualStyleBackColor = false;
+            this.butEditar.Click += new System.EventHandler(this.butEditar_Click);
             // 
-            // button1
+            // butAgregar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(12, 480);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 41);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "AGREGAR";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.butAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.butAgregar.Location = new System.Drawing.Point(12, 480);
+            this.butAgregar.Name = "butAgregar";
+            this.butAgregar.Size = new System.Drawing.Size(75, 41);
+            this.butAgregar.TabIndex = 32;
+            this.butAgregar.Text = "AGREGAR";
+            this.butAgregar.UseVisualStyleBackColor = false;
+            this.butAgregar.Click += new System.EventHandler(this.button1_Click);
             // 
             // textbObservacion
             // 
@@ -360,6 +349,24 @@
             this.dataGridView1.Size = new System.Drawing.Size(485, 549);
             this.dataGridView1.TabIndex = 0;
             // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(109, 347);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(190, 21);
+            this.comboBox4.TabIndex = 49;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(110, 270);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(190, 21);
+            this.comboBox5.TabIndex = 50;
+            // 
             // EquiposFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,9 +390,9 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button butEliminar;
+        private System.Windows.Forms.Button butEditar;
+        private System.Windows.Forms.Button butAgregar;
         private System.Windows.Forms.TextBox textbObservacion;
         private System.Windows.Forms.TextBox textbModelo;
         private System.Windows.Forms.Label label1;
@@ -405,11 +412,11 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbMarca;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBox4;
     }
 }

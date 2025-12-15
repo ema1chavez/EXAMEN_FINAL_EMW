@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
         private void TranferenciasFrm_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = Transferencia.Obtener();
+
             if (dataGridView1.Columns.Count > 0)
             {
                 dataGridView1.Columns["id"].Visible = false;
@@ -37,32 +38,31 @@ namespace WindowsFormsApp1
                 dataGridView1.Columns["ubicacion_destino_id"].Visible = false;
             }
 
-            // cargar el combobox de equipo 
+            // EQUIPO
             cbEquipo.DataSource = Equipo.Obtener();
-            cbEquipo.DisplayMember = "nombre";  // campo que se ve en la lista
-            cbEquipo.ValueMember = ""; 
+            cbEquipo.DisplayMember = "nombre";
+            cbEquipo.ValueMember = "id";   // ✅ CORREGIDO
 
-            // cargar el combobox de ubicacion origen
+            // UBICACIÓN ORIGEN
             cbUbicacionOrigen.DataSource = Ubicacione.Obtener();
             cbUbicacionOrigen.DisplayMember = "area";
-            cbUbicacionOrigen.ValueMember = "";   // <-- corregido aquí
+            cbUbicacionOrigen.ValueMember = "id";   // ✅ CORREGIDO
 
-            // cargar el combobox de ubicacion destino
+            // UBICACIÓN DESTINO
             cbUbicacionDestino.DataSource = Ubicacione.Obtener();
             cbUbicacionDestino.DisplayMember = "area";
-            cbUbicacionDestino.ValueMember = "id";  // <-- corregido aquí
+            cbUbicacionDestino.ValueMember = "id";
 
-            // cargar el combobox de responsable entrega
+            // RESPONSABLE ENTREGA
             cbResponsableEntrega.DataSource = Responsable.Obtener();
             cbResponsableEntrega.DisplayMember = "nombre";
-            cbResponsableEntrega.ValueMember = "id";  // <-- corregido aquí
+            cbResponsableEntrega.ValueMember = "id";
 
-            // cargar el combobox de responsable recibe
+            // RESPONSABLE RECIBE
             cbResponsableRecibe.DataSource = Responsable.Obtener();
             cbResponsableRecibe.DisplayMember = "nombre";
-            cbResponsableRecibe.ValueMember = "id";   // <-- corregido aquí
+            cbResponsableRecibe.ValueMember = "id";
         }
-
 
         private void label5_Click(object sender, EventArgs e)
         {
@@ -75,9 +75,22 @@ namespace WindowsFormsApp1
         }
 
 
-        //guardamos los datos de la transferencia en la base de datos
+        // ================= GUARDAR =================
         private void button1_Click(object sender, EventArgs e)
         {
+            // VALIDACIÓN MÍNIMA (no cambia diseño)
+            if (
+                cbEquipo.SelectedIndex == -1 ||
+                cbUbicacionOrigen.SelectedIndex == -1 ||
+                cbUbicacionDestino.SelectedIndex == -1 ||
+                cbResponsableEntrega.SelectedIndex == -1 ||
+                cbResponsableRecibe.SelectedIndex == -1
+            )
+            {
+                MessageBox.Show("Complete todos los campos");
+                return;
+            }
+
             int equipo_id = Convert.ToInt32(cbEquipo.SelectedValue);
             int ubicacion_origen_id = Convert.ToInt32(cbUbicacionOrigen.SelectedValue);
             int ubicacion_destino_id = Convert.ToInt32(cbUbicacionDestino.SelectedValue);
@@ -86,11 +99,7 @@ namespace WindowsFormsApp1
 
             DateTime fecha_transferencia = datetimeFechaTransferencia.Value;
 
-            string motivo = txtMotivo.Text;
-            string documentoRespaldo = txtDocumentoRespaldo.Text;
-            string observaciones = txtObservaciones.Text;
-
-            bool resultado = false;
+            bool resultado;
 
             if (transferencias_id == 0)
             {
@@ -101,9 +110,9 @@ namespace WindowsFormsApp1
                     responsable_entrega_id,
                     responsable_recibe_id,
                     fecha_transferencia,
-                    motivo,
-                    documentoRespaldo,
-                    observaciones
+                    txtMotivo.Text,
+                    txtDocumentoRespaldo.Text,
+                    txtObservaciones.Text
                 );
             }
             else
@@ -116,9 +125,9 @@ namespace WindowsFormsApp1
                     responsable_entrega_id,
                     responsable_recibe_id,
                     fecha_transferencia,
-                    motivo,
-                    documentoRespaldo,
-                    observaciones
+                    txtMotivo.Text,
+                    txtDocumentoRespaldo.Text,
+                    txtObservaciones.Text
                 );
             }
 
@@ -129,23 +138,100 @@ namespace WindowsFormsApp1
             }
         }
 
-
-
+        // ================= LIMPIAR =================
         private void limpiar()
         {
             txtMotivo.Clear();
             txtDocumentoRespaldo.Clear();
             txtObservaciones.Clear();
-            cbEquipo.SelectedIndex = 0;
-            cbUbicacionOrigen.SelectedIndex = 0;
-            cbUbicacionDestino.SelectedIndex = 0;
-            cbResponsableEntrega.SelectedIndex = 0;
-            cbResponsableRecibe.SelectedIndex = 0;
+
+            cbEquipo.SelectedIndex = -1;
+            cbUbicacionOrigen.SelectedIndex = -1;
+            cbUbicacionDestino.SelectedIndex = -1;
+            cbResponsableEntrega.SelectedIndex = -1;
+            cbResponsableRecibe.SelectedIndex = -1;
+
+            transferencias_id = 0;
         }
 
         private void btEditar_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un registro");
+                return;
+            }
+
+            transferencias_id = Convert.ToInt32(
+                dataGridView1.CurrentRow.Cells["id"].Value
+            );
+
+            cbEquipo.SelectedValue =
+                dataGridView1.CurrentRow.Cells["equipo_id"].Value;
+
+            cbUbicacionOrigen.SelectedValue =
+                dataGridView1.CurrentRow.Cells["ubicacion_origen_id"].Value;
+
+            cbUbicacionDestino.SelectedValue =
+                dataGridView1.CurrentRow.Cells["ubicacion_destino_id"].Value;
+
+            cbResponsableEntrega.SelectedValue =
+                dataGridView1.CurrentRow.Cells["responsable_entrega_id"].Value;
+
+            cbResponsableRecibe.SelectedValue =
+                dataGridView1.CurrentRow.Cells["responsable_recibe_id"].Value;
+
+            datetimeFechaTransferencia.Value =
+                Convert.ToDateTime(
+                    dataGridView1.CurrentRow.Cells["fecha_transferencia"].Value
+                );
+
+            txtMotivo.Text =
+                dataGridView1.CurrentRow.Cells["motivo"].Value.ToString();
+
+            txtDocumentoRespaldo.Text =
+                dataGridView1.CurrentRow.Cells["documento_respaldo"].Value.ToString();
+
+            txtObservaciones.Text =
+                dataGridView1.CurrentRow.Cells["observaciones"].Value.ToString();
+        }
+
+
+        private void btEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un registro");
+                return;
+            }
+
+            int id = Convert.ToInt32(
+                dataGridView1.CurrentRow.Cells["id"].Value
+            );
+
+            DialogResult r = MessageBox.Show(
+                "¿Desea eliminar la transferencia?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (r == DialogResult.Yes)
+            {
+                bool eliminado = Transferencia.Eliminar(id);
+
+                if (eliminado)
+                {
+                    dataGridView1.DataSource = Transferencia.Obtener();
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar");
+                }
+            }
 
         }
+
     }
 }

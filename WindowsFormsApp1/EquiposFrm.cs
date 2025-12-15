@@ -36,126 +36,42 @@ namespace WindowsFormsApp1
 
         private void EquiposFrm_Load(object sender, EventArgs e)
         {
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            dataGridView1.DataSource = Equipo.Obtener();
-            if(dataGridView1.Columns.Count >0)
             {
-                dataGridView1.Columns["id"].Visible = false;
-
-
+                dataGridView1.DataSource = Equipo.Obtener();
+                if (dataGridView1.Columns.Count > 0)
+                {
+                    dataGridView1.Columns["id"].Visible = false;
+                    dataGridView1.Columns["marca_id"].Visible = false;
+                }
+                cbMarca.DataSource = Marca.Obtener();
+                cbMarca.DisplayMember = "nombre";
+                cbMarca.ValueMember = "id";
             }
+
         }
+
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //boton guardar
+        {
+
+        }
+
+        private void butEditar_Click(object sender, EventArgs e)  //boton editar
+        {
+
+        }
+
+        private void butEliminar_Click(object sender, EventArgs e)  //boton eliminar
+        {
+
+        }
+
+        private void cbMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

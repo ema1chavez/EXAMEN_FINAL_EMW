@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
     public partial class ProveedoresFmr : Form
     {
         int proveedor_id = 0;
+
         public ProveedoresFmr()
         {
             InitializeComponent();
@@ -27,67 +28,131 @@ namespace WindowsFormsApp1
 
         private void ProveedoresFmr_Load(object sender, EventArgs e)
         {
-            {
-                dataGridView1.DataSource = Proveedore.Obtener();
-                if (dataGridView1.Columns.Count > 0)
-                {
-                    dataGridView1.Columns["id"].Visible = false;
+            CargarDatos();
+        }
 
+        // ===================== CARGAR =====================
+        private void CargarDatos()
+        {
+            dataGridView1.DataSource = Proveedore.Obtener();
+
+            if (dataGridView1.Columns.Contains("id"))
+            {
+                dataGridView1.Columns["id"].Visible = false;
+            }
+        }
+
+        // ===================== GUARDAR =====================
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string razon = txtRazon_social.Text.Trim();
+            string ruc = txtRuc.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string direccion = txtDireccion.Text.Trim();
+
+            if (string.IsNullOrEmpty(razon) || string.IsNullOrEmpty(ruc))
+            {
+                MessageBox.Show("Complete los campos obligatorios");
+                return;
+            }
+
+            bool resultado;
+
+            if (proveedor_id == 0)
+            {
+                resultado = Proveedore.Crear(razon, ruc, telefono, email, direccion);
+            }
+            else
+            {
+                resultado = Proveedore.Editar(proveedor_id, razon, ruc, telefono, email, direccion);
+            }
+
+            if (resultado)
+            {
+                MessageBox.Show("Operación realizada correctamente");
+                CargarDatos();
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo realizar la operación");
+            }
+        }
+
+        // ===================== EDITAR =====================
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un proveedor");
+                return;
+            }
+
+            proveedor_id = Convert.ToInt32(
+                dataGridView1.CurrentRow.Cells["id"].Value);
+
+            txtRazon_social.Text =
+                dataGridView1.CurrentRow.Cells["Razon_social"].Value.ToString();
+
+            txtRuc.Text =
+                dataGridView1.CurrentRow.Cells["Ruc"].Value.ToString();
+
+            txtTelefono.Text =
+                dataGridView1.CurrentRow.Cells["Telefono"].Value.ToString();
+
+            txtEmail.Text =
+                dataGridView1.CurrentRow.Cells["Email"].Value.ToString();
+
+            txtDireccion.Text =
+                dataGridView1.CurrentRow.Cells["Direccion"].Value.ToString();
+        }
+
+        // ===================== ELIMINAR =====================
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un proveedor");
+                return;
+            }
+
+            int id = Convert.ToInt32(
+                dataGridView1.CurrentRow.Cells["id"].Value);
+
+            DialogResult r = MessageBox.Show(
+                "¿Está seguro de eliminar este proveedor?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (r == DialogResult.Yes)
+            {
+                if (Proveedore.Eliminar(id))
+                {
+                    MessageBox.Show("Proveedor eliminado correctamente");
+                    CargarDatos();
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "No se puede eliminar el proveedor.\n" +
+                        "Puede tener equipos asociados."
+                    );
                 }
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            string Razon_social = txtRazon_social.Text;
-            string Ruc = txtRuc.Text;
-            string Telefono = txtTelefono.Text;
-            string Email = txtEmail.Text;
-            string Direccion = txtDireccion.Text;
-            bool resultado = false;
-            if (proveedor_id == 0)
-            {
-                resultado = Proveedore.Crear(Razon_social, Ruc, Telefono, Email, Direccion);
-            }
-            else
-            {
-                resultado = Proveedore.Editar(proveedor_id, Razon_social, Ruc, Telefono, Email, Direccion);
-            }
-            if (resultado)
-            {
-                dataGridView1.DataSource = Proveedore.Obtener();
-                limpiar();
-            }
-        }
-        private void limpiar()
+        // ===================== LIMPIAR =====================
+        private void Limpiar()
         {
             txtRazon_social.Clear();
             txtRuc.Clear();
             txtTelefono.Clear();
             txtEmail.Clear();
             txtDireccion.Clear();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            txtRazon_social.Text = dataGridView1.CurrentRow.Cells["Razon_social"].Value.ToString();
-            txtRuc.Text = dataGridView1.CurrentRow.Cells["Ruc"].Value.ToString();
-            txtTelefono.Text = dataGridView1.CurrentRow.Cells["Telefono"].Value.ToString();
-            txtEmail.Text = dataGridView1.CurrentRow.Cells["Email"].Value.ToString();
-            txtDireccion.Text = dataGridView1.CurrentRow.Cells["Direccion"].Value.ToString();
-            proveedor_id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
-            bool resultado = Proveedore.Eliminar(id);
-            if (resultado)
-            {
-                MessageBox.Show("Cliente Eliminado Correctamente");
-            }
-                dataGridView1.DataSource = Proveedore.Obtener();
-            }
+            proveedor_id = 0;
         }
     }
-
+}
