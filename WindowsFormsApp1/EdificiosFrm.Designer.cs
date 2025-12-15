@@ -100,7 +100,7 @@
             this.btnGuarda.TabIndex = 4;
             this.btnGuarda.Text = "Guardar";
             this.btnGuarda.UseVisualStyleBackColor = false;
-            this.btnGuarda.Click += new System.EventHandler(this.btnGuarda_Click);
+            this.btnGuarda.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtDireccion
             // 

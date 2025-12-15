@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
         {
             string nombre = textBox1.Text;
             string Dni = textBox2.Text;
-            string Cargo = txtca.Text;
+            string Cargo = txtcargo.Text;
             string Telefono = textBox3.Text;
             string Email = textBox4.Text;
             bool resultado = false;
@@ -63,7 +63,7 @@ namespace WindowsFormsApp1
         {
             textBox1.Text = cbResponsable.CurrentRow.Cells["nombre"].Value.ToString();
             textBox2.Text = cbResponsable.CurrentRow.Cells["dni"].Value.ToString();
-            txtca.Text = cbResponsable.CurrentRow.Cells["Cargo"].Value.ToString();
+            txtcargo.Text = cbResponsable.CurrentRow.Cells["Cargo"].Value.ToString();
             textBox3.Text = cbResponsable.CurrentRow.Cells["Telefono"].Value.ToString();
             textBox4.Text = cbResponsable.CurrentRow.Cells["Email"].Value.ToString();
             Responsable_id = Convert.ToInt32(cbResponsable.CurrentRow.Cells["id"].Value);

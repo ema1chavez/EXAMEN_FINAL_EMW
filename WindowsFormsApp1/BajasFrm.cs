@@ -15,86 +15,174 @@ namespace WindowsFormsApp1
     public partial class BajasFrm : Form
     {
         int Baja_id = 0;
+
         public BajasFrm()
         {
             InitializeComponent();
         }
 
+        // =========================
+        // LOAD
+        // =========================
         private void BajasFrm_Load(object sender, EventArgs e)
         {
-            {
-                dataGridView1.DataSource = Baja.Obtener();
-                if (dataGridView1.Columns.Count > 0)
-                {
-                    dataGridView1.Columns["id"].Visible = false;
+            CargarCombos();
+            CargarGrid();
+        }
 
-                }
+        // =========================
+        // CARGAR COMBOS
+        // =========================
+        private void CargarCombos()
+        {
+            // EQUIPOS
+            cbEquipo.DataSource = null;
+            cbEquipo.DataSource = Equipo.Obtener();
+            cbEquipo.DisplayMember = "nombre";
+            cbEquipo.ValueMember = "id";
+            cbEquipo.SelectedIndex = -1;
+
+            // RESPONSABLES
+            cbResponsable.DataSource = null;
+            cbResponsable.DataSource = Responsable.Obtener();
+            cbResponsable.DisplayMember = "nombre";
+            cbResponsable.ValueMember = "id";
+            cbResponsable.SelectedIndex = -1;
+        }
+
+        // =========================
+        // CARGAR GRID
+        // =========================
+        private void CargarGrid()
+        {
+            dataGridView1.DataSource = Baja.Obtener();
+
+            if (dataGridView1.Columns.Count > 0)
+                dataGridView1.Columns["id"].Visible = false;
+        }
+
+        // =========================
+        // GUARDAR / EDITAR
+        // =========================
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (cbEquipo.SelectedIndex == -1 || cbResponsable.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione equipo y responsable");
+                return;
+            }
+
+            int equipoId = Convert.ToInt32(cbEquipo.SelectedValue);
+            int responsableId = Convert.ToInt32(cbResponsable.SelectedValue);
+
+            bool resultado;
+
+            if (Baja_id == 0)
+            {
+                resultado = Baja.Crear(
+                    txtMotivo.Text,
+                    txtDocumento_Respaldo.Text,
+                    txtInforme_tecnico.Text,
+                    datetFechaBajas.Value,
+                    txtTipoDispocision.Text,
+                    equipoId,
+                    responsableId
+                );
+            }
+            else
+            {
+                resultado = Baja.Editar(
+                    Baja_id,
+                    txtMotivo.Text,
+                    txtDocumento_Respaldo.Text,
+                    txtInforme_tecnico.Text,
+                    datetFechaBajas.Value,
+                    txtTipoDispocision.Text,
+                    equipoId,
+                    responsableId
+                );
+            }
+
+            if (resultado)
+            {
+                MessageBox.Show("Operación realizada correctamente");
+                CargarGrid();
+                Limpiar();
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        // =========================
+        // EDITAR
+        // =========================
+        private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null) return;
+
+            Baja_id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
+
+            txtMotivo.Text = dataGridView1.CurrentRow.Cells["motivo"].Value.ToString();
+            txtDocumento_Respaldo.Text = dataGridView1.CurrentRow.Cells["Documento_Respaldo"].Value.ToString();
+            txtInforme_tecnico.Text = dataGridView1.CurrentRow.Cells["Informe_tecnico"].Value.ToString();
+            datetFechaBajas.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["Fecha_Baja"].Value);
+            txtTipoDispocision.Text = dataGridView1.CurrentRow.Cells["Tipo_Disposicion"].Value.ToString();
+
+            cbEquipo.SelectedValue =
+                Convert.ToInt32(dataGridView1.CurrentRow.Cells["Equipo_id"].Value);
+
+            cbResponsable.SelectedValue =
+                Convert.ToInt32(dataGridView1.CurrentRow.Cells["Responsable_autorizacion_id"].Value);
+        }
+
+        // =========================
+        // ELIMINAR
+        // =========================
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null)
             {
-                string Motivo= txtMotivo.Text;
-                string Documento_Respaldo = txtDocumento_Respaldo.Text;
-                string Informe_Tecnico = txtInforme_tecnico.Text;
-                string Fecha_Baja = datetFechaBajas.Value.ToString("yyyy-MM-dd"); ;
-                string Tipo_Disposicion = txtTipo_disposicion.Text;
-                string Equipo_id = textBox1.Text;
-                string Responsable_autorizacion_id = textBox2.Text;
-                bool resultado = false;
-                if (Baja_id == 0)
+                MessageBox.Show("Seleccione una baja");
+                return;
+            }
+
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
+
+            DialogResult r = MessageBox.Show(
+                "¿Está seguro de eliminar esta baja?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (r == DialogResult.Yes)
+            {
+                if (Baja.Eliminar(id))
                 {
-                    resultado = Baja.Crear(Motivo, Documento_Respaldo,Informe_Tecnico,Fecha_Baja,Tipo_Disposicion,Equipo_id,Responsable_autorizacion_id);
+                    MessageBox.Show("Baja eliminada correctamente");
+                    CargarGrid();
+                    Limpiar();
                 }
                 else
                 {
-                    resultado = Baja.Editar(Baja_id,Motivo, Documento_Respaldo, Informe_Tecnico, Fecha_Baja, Tipo_Disposicion, Equipo_id, Responsable_autorizacion_id);
+                    MessageBox.Show("No se pudo eliminar la baja");
                 }
-
-                dataGridView1.DataSource = Baja.Obtener();
-                limpiar();
             }
         }
-        private void limpiar()
+
+        // =========================
+        // LIMPIAR
+        // =========================
+        private void Limpiar()
         {
             txtMotivo.Clear();
             txtDocumento_Respaldo.Clear();
             txtInforme_tecnico.Clear();
-            datetFechaBajas.Text = "";
-            txtTipo_disposicion.Clear();
-            textBox1.Clear();
-            textBox2.Clear();
+            txtTipoDispocision.Clear();
+
+            datetFechaBajas.Value = DateTime.Now;
+            cbEquipo.SelectedIndex = -1;
+            cbResponsable.SelectedIndex = -1;
+
             Baja_id = 0;
-        }
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                Baja_id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
-                txtMotivo.Text = dataGridView1.CurrentRow.Cells["motivo"].Value.ToString();
-                txtDocumento_Respaldo.Text = dataGridView1.CurrentRow.Cells["documento_respaldo"].Value.ToString();
-                txtInforme_tecnico.Text = dataGridView1.CurrentRow.Cells["informe_tecnico"].Value.ToString();
-                datetFechaBajas.Text = dataGridView1.CurrentRow.Cells["fecha_baja"].Value.ToString();
-                txtTipo_disposicion.Text = dataGridView1.CurrentRow.Cells["tipo_disposicion"].Value.ToString();
-                textBox1.Text = dataGridView1.CurrentRow.Cells["equipo_id"].Value.ToString();
-                textBox2.Text = dataGridView1.CurrentRow.Cells["responsable_autorizacion_id"].Value.ToString();
-            }
-
-        }
-        private void  btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                int bajaId = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
-                bool resultado = Baja.Eliminar(bajaId);
-                if (resultado)
-                {
-                    dataGridView1.DataSource = Baja.Obtener();
-                    limpiar();
-                }
-            }
-
         }
     }
 }

@@ -22,17 +22,19 @@ namespace WindowsFormsApp1
 
         private void MantenimientosFrm_Load(object sender, EventArgs e)
         {
-
-            //optener la lista de ID del Equipo 
+            // Cargar equipos
             combobEquipoID.DataSource = Equipo.Obtener();
-            combobEquipoID.DisplayMember = "id";     // Lo que se muestra
-            combobEquipoID.ValueMember = "";       // El valor real
+            combobEquipoID.DisplayMember = "nombre";
+            combobEquipoID.ValueMember = "id";
+            combobEquipoID.SelectedIndex = -1;
 
-            //optener la lista de id del tecnico
+            // Cargar técnicos
             combobTecnicoID.DataSource = Tecnico.Obtener();
-            combobTecnicoID.DisplayMember = "id";
+            combobTecnicoID.DisplayMember = "nombre";
             combobTecnicoID.ValueMember = "id";
+            combobTecnicoID.SelectedIndex = -1;
 
+            // Cargar mantenimientos
             dataGridView1.DataSource = Mantenimiento.Obtener();
 
             if (dataGridView1.Columns.Count > 0)
@@ -41,15 +43,40 @@ namespace WindowsFormsApp1
             }
         }
 
+        // ======================= GUARDAR =======================
         private void buttGuardar_Click(object sender, EventArgs e)
         {
+            // VALIDAR EQUIPO
+            int equipo_id;
+            if (!int.TryParse(combobEquipoID.SelectedValue?.ToString(), out equipo_id))
+            {
+                MessageBox.Show("Seleccione un equipo válido.");
+                return;
+            }
+
+            // VALIDAR TÉCNICO
+            int tecnico_id;
+            if (!int.TryParse(combobTecnicoID.SelectedValue?.ToString(), out tecnico_id))
+            {
+                MessageBox.Show("Seleccione un técnico válido.");
+                return;
+            }
+
             string tipo = txtTipo.Text;
             DateTime fecha_inicio = dateTimeFechaInicio.Value;
             DateTime fecha_fin = dateTimeFechaFin.Value;
+
+            if (fecha_fin < fecha_inicio)
+            {
+                MessageBox.Show("La fecha de fin no puede ser menor que la fecha de inicio.");
+                return;
+            }
+
             string descripcion_problema = txtDescripcionProblema.Text;
             string acciones_realizadas = txtAccionesRealizadas.Text;
+            string estado = txtEstado.Text;
+            string informe_tecnico = txtInformeTecnico.Text;
 
-            // VALIDAR DECIMAL
             decimal costo_total;
             if (!decimal.TryParse(txtCostoTotal.Text, out costo_total))
             {
@@ -57,41 +84,121 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            // VALIDAR INT
             int tiempo_inactividad;
             if (!int.TryParse(txtTiempoInactividad.Text, out tiempo_inactividad))
             {
-                MessageBox.Show("Ingrese un tiempo de inactividad válido (número entero).");
+                MessageBox.Show("Ingrese un tiempo de inactividad válido.");
                 return;
             }
 
-            string estado = txtEstado.Text;
-            string informe_tecnico = txtInformeTecnico.Text;
-          
-
-            bool resultado = false;
+            bool resultado;
 
             if (MantenimientoID == 0)
             {
                 resultado = Mantenimiento.Crear(
-                    tipo, fecha_inicio, fecha_fin, descripcion_problema,
-                    acciones_realizadas, costo_total, tiempo_inactividad,
-                    estado, informe_tecnico
+                    equipo_id,
+                    tecnico_id,
+                    tipo,
+                    fecha_inicio,
+                    fecha_fin,
+                    descripcion_problema,
+                    acciones_realizadas,
+                    costo_total,
+                    tiempo_inactividad,
+                    estado,
+                    informe_tecnico
                 );
             }
             else
             {
                 resultado = Mantenimiento.Editar(
-                    MantenimientoID, tipo, fecha_inicio, fecha_fin,
-                    descripcion_problema, acciones_realizadas,
-                    costo_total, tiempo_inactividad, estado, informe_tecnico
+                    MantenimientoID,
+                    equipo_id,
+                    tecnico_id,
+                    tipo,
+                    fecha_inicio,
+                    fecha_fin,
+                    descripcion_problema,
+                    acciones_realizadas,
+                    costo_total,
+                    tiempo_inactividad,
+                    estado,
+                    informe_tecnico
                 );
             }
 
-            dataGridView1.DataSource = Mantenimiento.Obtener();
-            limpiar();
+            if (resultado)
+            {
+                MessageBox.Show("Mantenimiento guardado correctamente.");
+                dataGridView1.DataSource = Mantenimiento.Obtener();
+                limpiar();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo guardar el mantenimiento.");
+            }
         }
 
+        // ======================= EDITAR =======================
+        private void buttEditar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un registro.");
+                return;
+            }
+
+            MantenimientoID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
+
+            combobEquipoID.SelectedValue = dataGridView1.CurrentRow.Cells["equipo_id"].Value;
+            combobTecnicoID.SelectedValue = dataGridView1.CurrentRow.Cells["tecnico_id"].Value;
+
+            txtTipo.Text = dataGridView1.CurrentRow.Cells["tipo"].Value.ToString();
+            txtDescripcionProblema.Text = dataGridView1.CurrentRow.Cells["descripcion_problema"].Value.ToString();
+            txtAccionesRealizadas.Text = dataGridView1.CurrentRow.Cells["acciones_realizadas"].Value.ToString();
+            txtCostoTotal.Text = dataGridView1.CurrentRow.Cells["costo_total"].Value.ToString();
+            txtTiempoInactividad.Text = dataGridView1.CurrentRow.Cells["tiempo_inactividad"].Value.ToString();
+            txtEstado.Text = dataGridView1.CurrentRow.Cells["estado"].Value.ToString();
+            txtInformeTecnico.Text = dataGridView1.CurrentRow.Cells["informe_tecnico"].Value.ToString();
+
+            dateTimeFechaInicio.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["fecha_inicio"].Value);
+            dateTimeFechaFin.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["fecha_fin"].Value);
+        }
+
+        // ======================= ELIMINAR =======================
+        private void buttEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un mantenimiento.");
+                return;
+            }
+
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
+
+            DialogResult r = MessageBox.Show(
+                "¿Está seguro de eliminar este mantenimiento?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (r == DialogResult.Yes)
+            {
+                if (Mantenimiento.Eliminar(id))
+                {
+                    MessageBox.Show("Mantenimiento eliminado correctamente.");
+                    dataGridView1.DataSource = Mantenimiento.Obtener();
+                    limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar.");
+                }
+            }
+        }
+
+        // ======================= LIMPIAR =======================
         private void limpiar()
         {
             txtTipo.Clear();
@@ -105,69 +212,21 @@ namespace WindowsFormsApp1
             dateTimeFechaInicio.Value = DateTime.Now;
             dateTimeFechaFin.Value = DateTime.Now;
 
+            combobEquipoID.SelectedIndex = -1;
+            combobTecnicoID.SelectedIndex = -1;
+
             MantenimientoID = 0;
         }
 
-        private void buttEditar_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow == null)
-            {
-                MessageBox.Show("Seleccione un registro.");
-                return;
-            }
-
-            // Obtener ID del mantenimiento seleccionado
-            MantenimientoID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
-
-            // Cargar los campos en el formulario
-            txtTipo.Text = dataGridView1.CurrentRow.Cells["tipo"].Value.ToString();
-            txtDescripcionProblema.Text = dataGridView1.CurrentRow.Cells["descripcion_problema"].Value.ToString();
-            txtAccionesRealizadas.Text = dataGridView1.CurrentRow.Cells["acciones_realizadas"].Value.ToString();
-            txtCostoTotal.Text = dataGridView1.CurrentRow.Cells["costo_total"].Value.ToString();
-            txtTiempoInactividad.Text = dataGridView1.CurrentRow.Cells["tiempo_inactividad"].Value.ToString();
-            txtEstado.Text = dataGridView1.CurrentRow.Cells["estado"].Value.ToString();
-            txtInformeTecnico.Text = dataGridView1.CurrentRow.Cells["informe_tecnico"].Value.ToString();
-
-            // Fechas
-            dateTimeFechaInicio.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["fecha_inicio"].Value);
-            dateTimeFechaFin.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["fecha_fin"].Value);
-        }
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value.ToString());
-            bool resultado  = Mantenimiento.Eliminar(id);
-            if (resultado)
-            {
-                MessageBox.Show("Cliente Eliminado Correctamente");
-            }
-            dataGridView1.DataSource = Mantenimiento.Obtener();
-            limpiar();
-        }
-
+        // ======================= EVENTOS (NECESARIOS PARA EL DESIGNER) =======================
         private void combobEquipoID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (combobEquipoID.SelectedValue == null)
-                return;
-
-            // Evita que SelectedValue sea DataRowView
-            if (combobEquipoID.SelectedValue is DataRowView)
-                return;
-
-            int equipoID = Convert.ToInt32(combobEquipoID.SelectedValue);
-           
+            // Método vacío para evitar error del Designer
         }
 
         private void combobTecnicoID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (combobTecnicoID.SelectedValue == null)
-                return;
-
-            if (combobTecnicoID.SelectedValue is DataRowView)
-                return;
-
-            int tecnicoID = Convert.ToInt32(combobTecnicoID.SelectedValue);
-           
-
+            // Método vacío para evitar error del Designer
         }
     }
 }

@@ -16,17 +16,18 @@ namespace WindowsFormsApp1.Modelos
             Conexion cnn = new Conexion();
             try
             {
-                cnn.Conectar();
-                String consulta = "SELECT * FROM Edificios order by id desc";
-                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
-                SqlDataAdapter adaptador = new SqlDataAdapter(comando);
-                DataTable dt = new DataTable();
-                adaptador.Fill(dt);
-                return dt;
+                using (SqlConnection conn = cnn.Conectar())
+                {
+                    string sql = "SELECT id, nombre, direccion FROM Edificios ORDER BY id DESC";
+                    SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error al obtener edificios:\n" + ex.Message);
                 return null;
             }
             finally
@@ -34,22 +35,24 @@ namespace WindowsFormsApp1.Modelos
                 cnn.Desconectar();
             }
         }
+
         public static bool Crear(string nombre, string direccion)
         {
             Conexion cnn = new Conexion();
             try
             {
-                cnn.Conectar();
-                String consulta = "INSERT INTO Edificios (nombre, direccion) VALUES (@nombre, @direccion)";
-                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
-                comando.Parameters.AddWithValue("@nombre", nombre);
-                comando.Parameters.AddWithValue("@direccion", direccion);
-                int filasAfectadas = comando.ExecuteNonQuery();
-                return filasAfectadas > 0;
+                using (SqlConnection conn = cnn.Conectar())
+                {
+                    string sql = "INSERT INTO Edificios (nombre, direccion) VALUES (@nombre, @direccion)";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+                    cmd.Parameters.AddWithValue("@direccion", direccion);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error al crear edificio:\n" + ex.Message);
                 return false;
             }
             finally
@@ -57,23 +60,25 @@ namespace WindowsFormsApp1.Modelos
                 cnn.Desconectar();
             }
         }
+
         public static bool Editar(int id, string nombre, string direccion)
         {
             Conexion cnn = new Conexion();
             try
             {
-                cnn.Conectar();
-                String consulta = "UPDATE Edificios SET nombre = @nombre, direccion = @direccion WHERE id = @id";
-                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
-                comando.Parameters.AddWithValue("@id", id);
-                comando.Parameters.AddWithValue("@nombre", nombre);
-                comando.Parameters.AddWithValue("@direccion", direccion);
-                int filasAfectadas = comando.ExecuteNonQuery();
-                return filasAfectadas > 0;
+                using (SqlConnection conn = cnn.Conectar())
+                {
+                    string sql = "UPDATE Edificios SET nombre=@nombre, direccion=@direccion WHERE id=@id";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+                    cmd.Parameters.AddWithValue("@direccion", direccion);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error al editar edificio:\n" + ex.Message);
                 return false;
             }
             finally
@@ -81,27 +86,29 @@ namespace WindowsFormsApp1.Modelos
                 cnn.Desconectar();
             }
         }
+
         public static bool Eliminar(int id)
         {
             Conexion cnn = new Conexion();
             try
             {
-                cnn.Conectar();
-                String consulta = "DELETE FROM Edificios WHERE id = @id";
-                SqlCommand comando = new SqlCommand(consulta, cnn.Conectar());
-                comando.Parameters.AddWithValue("@id", id);
-                int filasAfectadas = comando.ExecuteNonQuery();
-                return filasAfectadas > 0;
+                using (SqlConnection conn = cnn.Conectar())
+                {
+                    string sql = "DELETE FROM Edificios WHERE id=@id";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error al eliminar edificio:\n" + ex.Message);
                 return false;
             }
             finally
             {
                 cnn.Desconectar();
             }
-        }   
+        }
     }
 }

@@ -178,6 +178,7 @@
             this.buttEliminar.TabIndex = 21;
             this.buttEliminar.Text = "ELIMINAR";
             this.buttEliminar.UseVisualStyleBackColor = false;
+            this.buttEliminar.Click += new System.EventHandler(this.buttEliminar_Click);
             // 
             // buttEditar
             // 

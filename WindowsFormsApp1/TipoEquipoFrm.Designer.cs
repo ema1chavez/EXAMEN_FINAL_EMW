@@ -33,11 +33,9 @@
             this.buttEliminar = new System.Windows.Forms.Button();
             this.buttEditar = new System.Windows.Forms.Button();
             this.buttAgregar = new System.Windows.Forms.Button();
-            this.textbNombre = new System.Windows.Forms.TextBox();
-            this.labMarca = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.labNombre = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -54,13 +52,11 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.buttEliminar);
             this.splitContainer1.Panel1.Controls.Add(this.buttEditar);
             this.splitContainer1.Panel1.Controls.Add(this.buttAgregar);
-            this.splitContainer1.Panel1.Controls.Add(this.textbNombre);
-            this.splitContainer1.Panel1.Controls.Add(this.labMarca);
+            this.splitContainer1.Panel1.Controls.Add(this.txtNombre);
             this.splitContainer1.Panel1.Controls.Add(this.labNombre);
             // 
             // splitContainer1.Panel2
@@ -88,6 +84,7 @@
             this.buttEliminar.TabIndex = 6;
             this.buttEliminar.Text = "ELIMINAR";
             this.buttEliminar.UseVisualStyleBackColor = false;
+            this.buttEliminar.Click += new System.EventHandler(this.buttEliminar_Click);
             // 
             // buttEditar
             // 
@@ -98,6 +95,7 @@
             this.buttEditar.TabIndex = 5;
             this.buttEditar.Text = "EDITAR";
             this.buttEditar.UseVisualStyleBackColor = false;
+            this.buttEditar.Click += new System.EventHandler(this.buttEditar_Click);
             // 
             // buttAgregar
             // 
@@ -108,22 +106,14 @@
             this.buttAgregar.TabIndex = 4;
             this.buttAgregar.Text = "AGREGAR";
             this.buttAgregar.UseVisualStyleBackColor = false;
+            this.buttAgregar.Click += new System.EventHandler(this.buttAgregar_Click);
             // 
-            // textbNombre
+            // txtNombre
             // 
-            this.textbNombre.Location = new System.Drawing.Point(29, 69);
-            this.textbNombre.Name = "textbNombre";
-            this.textbNombre.Size = new System.Drawing.Size(147, 20);
-            this.textbNombre.TabIndex = 2;
-            // 
-            // labMarca
-            // 
-            this.labMarca.AutoSize = true;
-            this.labMarca.Location = new System.Drawing.Point(26, 98);
-            this.labMarca.Name = "labMarca";
-            this.labMarca.Size = new System.Drawing.Size(37, 13);
-            this.labMarca.TabIndex = 1;
-            this.labMarca.Text = "Marca";
+            this.txtNombre.Location = new System.Drawing.Point(29, 69);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(147, 20);
+            this.txtNombre.TabIndex = 2;
             // 
             // labNombre
             // 
@@ -145,15 +135,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(287, 159);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(29, 113);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(147, 21);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // TipoEquipoFrm
             // 
@@ -177,14 +158,12 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TextBox textbNombre;
-        private System.Windows.Forms.Label labMarca;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label labNombre;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttEliminar;
         private System.Windows.Forms.Button buttEditar;
         private System.Windows.Forms.Button buttAgregar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
