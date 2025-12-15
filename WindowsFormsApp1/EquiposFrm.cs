@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
                 if (dataGridView1.Columns.Count > 0)
                 {
                     dataGridView1.Columns["id"].Visible = false;
-                    dataGridView1.Columns["marca_id"].Visible = false;
+                   
                 }
                 cbMarca.DataSource = Marca.Obtener();
                 cbMarca.DisplayMember = "nombre";
